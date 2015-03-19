@@ -13,8 +13,8 @@ class GameScene: CCScene {
 	
 	// MARK: - Private Objects
     var parallaxNode:CCParallaxNode = CCParallaxNode()
-    let bgSpace1:CCSprite = CCSprite(imageNamed: "bgSpaceParallax.png")
-    let bgSpace2:CCSprite = CCSprite(imageNamed: "bgSpaceParallax.png")
+    let bgSpace1:CCSprite = CCSprite(imageNamed: "road.png")
+    let bgSpace2:CCSprite = CCSprite(imageNamed: "road.png")
 	
 	// MARK: - Life Cycle
 	override init() {

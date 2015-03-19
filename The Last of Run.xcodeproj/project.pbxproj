@@ -202,6 +202,8 @@
 		12F88AEB19DDA1D20001531E /* CCEffectUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88ADD19DDA1D20001531E /* CCEffectUtils.m */; };
 		9AD74BB61ABA5D0B00F50FF7 /* bgSpaceParallax.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD74BB51ABA5D0B00F50FF7 /* bgSpaceParallax.png */; };
 		9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */; };
+		B9726A3F1ABB77D00082F5E8 /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = B9726A3D1ABB77D00082F5E8 /* road.png */; };
+		B9726A401ABB77D00082F5E8 /* TheLastOfRun.png in Resources */ = {isa = PBXBuildFile; fileRef = B9726A3E1ABB77D00082F5E8 /* TheLastOfRun.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -607,6 +609,8 @@
 		12F88ADD19DDA1D20001531E /* CCEffectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCEffectUtils.m; path = Libraries/cocos2d/CCEffectUtils.m; sourceTree = "<group>"; };
 		9AD74BB51ABA5D0B00F50FF7 /* bgSpaceParallax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgSpaceParallax.png; sourceTree = "<group>"; };
 		9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
+		B9726A3D1ABB77D00082F5E8 /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		B9726A3E1ABB77D00082F5E8 /* TheLastOfRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TheLastOfRun.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -721,6 +725,8 @@
 		1293CCB219C08A25006A0E25 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B9726A3D1ABB77D00082F5E8 /* road.png */,
+				B9726A3E1ABB77D00082F5E8 /* TheLastOfRun.png */,
 				9AD74BB51ABA5D0B00F50FF7 /* bgSpaceParallax.png */,
 				1226620E19F00CD6001FE3B9 /* DefaultParticleFire */,
 				1255544A19C0D90600EC663C /* Splash */,
@@ -1549,6 +1555,8 @@
 			files = (
 				9AD74BB61ABA5D0B00F50FF7 /* bgSpaceParallax.png in Resources */,
 				1255544519C0D72000EC663C /* SoundFXButtonTap.mp3 in Resources */,
+				B9726A401ABB77D00082F5E8 /* TheLastOfRun.png in Resources */,
+				B9726A3F1ABB77D00082F5E8 /* road.png in Resources */,
 				1226621019F00CD6001FE3B9 /* fire.png in Resources */,
 				1255545119C0D90600EC663C /* Default.png in Resources */,
 				1255545219C0D90600EC663C /* Default@2x.png in Resources */,

@@ -12,7 +12,6 @@ class HomeScene : CCScene {
 	// MARK: - Public Objects
 
 	// MARK: - Private Objects
-	private let screenSize:CGSize = CCDirector.sharedDirector().viewSize()
 
 	// MARK: - Life Cycle
 	override init() {
@@ -25,13 +24,13 @@ class HomeScene : CCScene {
 		// Hello world
 		let label:CCLabelTTF = CCLabelTTF(string: "Hello World", fontName: "Chalkduster", fontSize: 36.0)
 		label.color = CCColor.redColor()
-		label.position = CGPointMake(self.screenSize.width/2, self.screenSize.height/2 + 40)
+		label.position = CGPointMake(screenSize.width/2, screenSize.height/2 + 40)
 		label.anchorPoint = CGPointMake(0.5, 0.5)
 		self.addChild(label)
 
 		// ToGame Button
 		let toGameButton:CCButton = CCButton(title: "[ Start ]", fontName: "Verdana-Bold", fontSize: 38.0)
-		toGameButton.position = CGPointMake(self.screenSize.width/2.0, self.screenSize.height/2.0)
+		toGameButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/2.0)
 		toGameButton.anchorPoint = CGPointMake(0.5, 0.5)
 //		toGameButton.setTarget(self, selector:"startTap:")
 		toGameButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.GameScene, isFade:true)}

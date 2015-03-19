@@ -12,26 +12,18 @@ class GameScene: CCScene {
 	// MARK: - Public Objects
 	
 	// MARK: - Private Objects
-	private let screenSize:CGSize = CCDirector.sharedDirector().viewSize()
+    var parallaxNode:CCParallaxNode = CCParallaxNode()
+    let bgSpace1:CCSprite = CCSprite(imageNamed: "bgSpaceParallax.png")
+    let bgSpace2:CCSprite = CCSprite(imageNamed: "bgSpaceParallax.png")
 	
 	// MARK: - Life Cycle
 	override init() {
 		super.init()
 
-		// Label loading
-		let label:CCLabelTTF = CCLabelTTF(string: "Game Scene", fontName: "Chalkduster", fontSize: 36.0)
-		label.color = CCColor.redColor()
-		label.position = CGPointMake(self.screenSize.width/2, self.screenSize.height/2)
-		label.anchorPoint = CGPointMake(0.5, 0.5)
-		self.addChild(label)
+        
+        self.createSceneObjects()
 
-		// Back button
-		let backButton:CCButton = CCButton(title: "[ Back ]", fontName: "Verdana-Bold", fontSize: 38.0)
-		backButton.position = CGPointMake(self.screenSize.width, self.screenSize.height)
-		backButton.anchorPoint = CGPointMake(1.0, 1.0)
-		backButton.zoomWhenHighlighted = false
-		backButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.HomeScene, isFade:true)}
-		self.addChild(backButton)
+		
 	}
 
 	override func onEnter() {
@@ -41,7 +33,20 @@ class GameScene: CCScene {
 
 	// Tick baseado no FPS
 	override func update(delta: CCTime) {
-		//...
+        
+        // ==================== CONTROLE DO PARALLAX
+        // Parallax infinito com apenas uma imagem
+        var backgroundScrollVel:CGPoint = CGPointMake(0, -500)
+        
+        // Soma os pontos (posicao atual + (velocidade * delta))
+        let pt1:CGFloat = backgroundScrollVel.y * CGFloat(delta)
+        let multiDelta:CGPoint = CGPointMake(backgroundScrollVel.x, pt1)
+        self.parallaxNode.position = CGPointMake(0.0, self.parallaxNode.position.y + multiDelta.y)
+        
+        // Valida qd a imagem xega ao fim para reposicionar as imagens
+        if (self.parallaxNode.convertToWorldSpace(self.bgSpace1.position).y < -self.bgSpace1.contentSize.height) {
+            self.parallaxNode.position = CGPointMake(0.0, 0.0)
+        }
 	}
 
 	// MARK: - Private Methods
@@ -55,4 +60,24 @@ class GameScene: CCScene {
 		// Chamado quando sai do director
 		super.onExit()
 	}
+    
+    func createSceneObjects(){
+        // Configura o parallax infinito
+        self.bgSpace1.position = CGPointMake(0.0, 0.0)
+        self.bgSpace1.anchorPoint = CGPointMake(0.0, 0.0)
+        self.bgSpace2.position = CGPointMake(0.0, 0.0)
+        self.bgSpace2.anchorPoint = CGPointMake(0.0, 0.0)
+        self.parallaxNode.position = CGPointMake(0.0, 0.0)
+        self.parallaxNode.addChild(self.bgSpace1, z: 1, parallaxRatio:CGPointMake(0.0, 0.5), positionOffset:CGPointMake(0.0, 0.0))
+        self.parallaxNode.addChild(self.bgSpace2, z: 1, parallaxRatio:CGPointMake(0.0, 0.5), positionOffset:CGPointMake(0.0, self.bgSpace1.contentSize.height))
+        self.addChild(self.parallaxNode, z: ObjectsLayers.Background.rawValue)
+        
+        // Back button
+        let backButton:CCButton = CCButton(title: "[ Back ]", fontName: "Verdana-Bold", fontSize: 38.0)
+        backButton.position = CGPointMake(screenSize.width, screenSize.height)
+        backButton.anchorPoint = CGPointMake(1.0, 1.0)
+        backButton.zoomWhenHighlighted = false
+        backButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.HomeScene, isFade:true)}
+        self.addChild(backButton)
+    }
 }

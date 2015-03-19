@@ -12,7 +12,7 @@ class LoadingScene : CCScene {
 	// MARK: - Public Objects
 
 	// MARK: - Private Objects
-	private let screenSize:CGSize = CCDirector.sharedDirector().viewSize()
+
 
 	// MARK: - Life Cycle
 	override init() {
@@ -21,7 +21,7 @@ class LoadingScene : CCScene {
 		// Label loading
 		let label:CCLabelTTF = CCLabelTTF(string: "Loading...", fontName: "Chalkduster", fontSize: 36.0)
 		label.color = CCColor.redColor()
-		label.position = CGPointMake(self.screenSize.width/2, self.screenSize.height/2)
+		label.position = CGPointMake(screenSize.width/2, screenSize.height/2)
 		label.anchorPoint = CGPointMake(0.5, 0.5)
 		self.addChild(label)
 

@@ -12,14 +12,18 @@ class GameScene: CCScene {
 	// MARK: - Public Objects
 	
 	// MARK: - Private Objects
+    var physicsWorld:CCPhysicsNode = CCPhysicsNode()
+    var canPlay:Bool = true
+    var isTouching:Bool = false
     var parallaxNode:CCParallaxNode = CCParallaxNode()
-    let bgSpace1:CCSprite = CCSprite(imageNamed: "road.png")
-    let bgSpace2:CCSprite = CCSprite(imageNamed: "road.png")
+    let bgroad1:CCSprite = CCSprite(imageNamed: "road.png")
+    let bgroad2:CCSprite = CCSprite(imageNamed: "road.png")
 	
 	// MARK: - Life Cycle
 	override init() {
 		super.init()
 
+        self.userInteractionEnabled = true
         
         self.createSceneObjects()
 
@@ -44,7 +48,7 @@ class GameScene: CCScene {
         self.parallaxNode.position = CGPointMake(0.0, self.parallaxNode.position.y + multiDelta.y)
         
         // Valida qd a imagem xega ao fim para reposicionar as imagens
-        if (self.parallaxNode.convertToWorldSpace(self.bgSpace1.position).y < -self.bgSpace1.contentSize.height) {
+        if (self.parallaxNode.convertToWorldSpace(self.bgroad1.position).y < -self.bgroad1.contentSize.height) {
             self.parallaxNode.position = CGPointMake(0.0, 0.0)
         }
 	}
@@ -63,21 +67,23 @@ class GameScene: CCScene {
     
     func createSceneObjects(){
         // Configura o parallax infinito
-        self.bgSpace1.position = CGPointMake(0.0, 0.0)
-        self.bgSpace1.anchorPoint = CGPointMake(0.0, 0.0)
-        self.bgSpace2.position = CGPointMake(0.0, 0.0)
-        self.bgSpace2.anchorPoint = CGPointMake(0.0, 0.0)
+        self.bgroad1.position = CGPointMake(0.0, 0.0)
+        self.bgroad1.anchorPoint = CGPointMake(0.0, 0.0)
+        self.bgroad2.position = CGPointMake(0.0, 0.0)
+        self.bgroad2.anchorPoint = CGPointMake(0.0, 0.0)
         self.parallaxNode.position = CGPointMake(0.0, 0.0)
-        self.parallaxNode.addChild(self.bgSpace1, z: 1, parallaxRatio:CGPointMake(0.0, 0.5), positionOffset:CGPointMake(0.0, 0.0))
-        self.parallaxNode.addChild(self.bgSpace2, z: 1, parallaxRatio:CGPointMake(0.0, 0.5), positionOffset:CGPointMake(0.0, self.bgSpace1.contentSize.height))
+        self.parallaxNode.addChild(self.bgroad1, z: 1, parallaxRatio:CGPointMake(0.0, 0.5), positionOffset:CGPointMake(0.0, 0.0))
+        self.parallaxNode.addChild(self.bgroad2, z: 1, parallaxRatio:CGPointMake(0.0, 0.5), positionOffset:CGPointMake(0.0, self.bgroad1.contentSize.height))
         self.addChild(self.parallaxNode, z: ObjectsLayers.Background.rawValue)
         
         // Back button
-        let backButton:CCButton = CCButton(title: "[ Back ]", fontName: "Verdana-Bold", fontSize: 38.0)
+        let backButton:CCButton = CCButton(title: "[ Back ]", fontName: "Verdana-Bold", fontSize: 18.0)
         backButton.position = CGPointMake(screenSize.width, screenSize.height)
         backButton.anchorPoint = CGPointMake(1.0, 1.0)
         backButton.zoomWhenHighlighted = false
-        backButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.HomeScene, isFade:true)}
-        self.addChild(backButton)
+        backButton.block = {_ in
+            StateMachine.sharedInstance.changeScene(StateMachineScenes.HomeScene, isFade:true)
+        }
+        self.addChild(backButton, z:ObjectsLayers.HUD.rawValue)
     }
 }

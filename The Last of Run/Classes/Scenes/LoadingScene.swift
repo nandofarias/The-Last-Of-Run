@@ -18,16 +18,15 @@ class LoadingScene : CCScene {
 	override init() {
 		super.init()
 
-		// Label loading
-		let label:CCLabelTTF = CCLabelTTF(string: "Loading...", fontName: "Chalkduster", fontSize: 36.0)
-		label.color = CCColor.redColor()
-		label.position = CGPointMake(screenSize.width/2, screenSize.height/2)
-		label.anchorPoint = CGPointMake(0.5, 0.5)
-		self.addChild(label)
+        // Define a cor de fundo da cena
+        self.color = CCColor.whiteColor()
+        
+        // Preload das musicas
+        SoundPlayHelper.sharedInstance.preloadSoundsAndMusic()
+        SoundPlayHelper.sharedInstance.setMusicDefaultVolume()
+        
+        self.createSceneObjects()
 
-		DelayHelper.sharedInstance.callBlock({ _ in
-			StateMachine.sharedInstance.changeScene(StateMachineScenes.HomeScene, isFade:true)
-		}, withDelay: 1.0)
 	}
 
 	override func onEnter() {
@@ -35,15 +34,32 @@ class LoadingScene : CCScene {
 		super.onEnter()
 	}
 
-	// MARK: - Private Methods
-
-	// MARK: - Public Methods
-
-	// MARK: - Delegates/Datasources
-
-	// MARK: - Death Cycle
-	override func onExit() {
-		// Chamado quando sai do director
-		super.onExit()
-	}
+    // MARK: - Private Methods
+    func createSceneObjects() {
+        // Label loading
+        let loadingLabel:CCLabelTTF = CCLabelTTF(string: "Loading...", fontName: "Verdana-Bold", fontSize: 56.0)
+        loadingLabel.fontColor = CCColor.blackColor()
+        loadingLabel.position = CGPointMake(screenSize.width / 2.0, screenSize.height / 2.0)
+        loadingLabel.anchorPoint = CGPointMake(0.5, 0.5)
+        self.addChild(loadingLabel, z: ObjectsLayers.Background.rawValue)
+        
+        // Chama os steps de inicializacao
+        DelayHelper.sharedInstance.callFunc("callGameHome", onTarget: self, withDelay: 1.0)
+    }
+    
+    func callGameHome() {
+        StateMachine.sharedInstance.changeScene(StateMachineScenes.HomeScene, isFade:true)
+    }
+    
+    // MARK: - Public Methods
+    
+    // MARK: - Delegates/Datasources
+    
+    // MARK: - Death Cycle
+    override func onExit() {
+        // Chamado quando sai do director
+        super.onExit()
+        
+        CCTextureCache.sharedTextureCache().removeAllTextures()
+}
 }

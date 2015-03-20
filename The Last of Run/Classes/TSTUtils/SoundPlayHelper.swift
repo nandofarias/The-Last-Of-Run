@@ -8,7 +8,7 @@
 import Foundation
 
 enum GameMusicAndSoundFx:String {
-	case MusicInGame = "MusicInGame.mp3"
+	case MusicInGame = "ZombieTheme.mp3"
 	case SoundFXButtonTap = "SoundFXButtonTap.mp3"
 	
 	static let allSoundFx = [SoundFXButtonTap]

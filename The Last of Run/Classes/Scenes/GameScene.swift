@@ -12,6 +12,11 @@ class GameScene: CCScene {
 	// MARK: - Public Objects
 	
 	// MARK: - Private Objects
+    private let screenSize:CGSize = CCDirector.sharedDirector().viewSize()
+    private var canTap:Bool = true
+    private var score:Int = 0
+    private var scoreLabel:CCLabelTTF = CCLabelTTF(string:"Kills: 0", fontName:"Verdana", fontSize:32.0)
+    
     var physicsWorld:CCPhysicsNode = CCPhysicsNode()
     var canPlay:Bool = true
     var isTouching:Bool = false
@@ -33,6 +38,10 @@ class GameScene: CCScene {
 	override func onEnter() {
 		// Chamado apos o init quando entra no director
 		super.onEnter()
+        
+        // Registra a criacao de barata
+        DelayHelper.sharedInstance.callFunc("generateBug", onTarget: self, withDelay: 0.1)
+
 	}
 
 	// Tick baseado no FPS
@@ -54,9 +63,33 @@ class GameScene: CCScene {
 	}
 
 	// MARK: - Private Methods
-
+    func generateBug() {
+        if (self.canPlay) {
+            // Quantidade de inseto gerado por vez...
+            //let bugAmout:Int = Int(arc4random_uniform(5) + 1)
+            
+            for (var i = 0; i < 1; i++) {
+                let positionX:CGFloat = CGFloat(arc4random_uniform(824) + 100)
+                var bug:Zumbi = Zumbi(event: "updateScore", target: self)
+                bug.position = CGPointMake(positionX, self.screenSize.height + (CGFloat(arc4random_uniform(100) + 50)))
+                bug.name = "z"
+                self.addChild(bug, z: 2)
+                bug.moveMe()
+            }
+            
+            // Apos geracao, registra nova geracao apos um tempo
+            DelayHelper.sharedInstance.callFunc("generateBug", onTarget: self, withDelay: 0.8)
+        }
+    }
+    
 	// MARK: - Public Methods
-	
+    func updateScore() {
+        self.score+=1
+        self.scoreLabel.string = "Kills: \(self.score)"
+    }
+    
+
+    
 	// MARK: - Delegates/Datasources
 	
 	// MARK: - Death Cycle

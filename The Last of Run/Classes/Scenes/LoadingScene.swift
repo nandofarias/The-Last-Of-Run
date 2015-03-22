@@ -25,6 +25,10 @@ class LoadingScene : CCScene {
         SoundPlayHelper.sharedInstance.preloadSoundsAndMusic()
         SoundPlayHelper.sharedInstance.setMusicDefaultVolume()
         
+        
+        // Preload do plist
+        CCSpriteFrameCache.sharedSpriteFrameCache().addSpriteFramesWithFile("zombie.plist")
+        
         self.createSceneObjects()
 
 	}

@@ -200,6 +200,9 @@
 		12F88AE919DDA1D20001531E /* CCEffectSaturation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88AD719DDA1D20001531E /* CCEffectSaturation.m */; };
 		12F88AEA19DDA1D20001531E /* CCEffectStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88ADA19DDA1D20001531E /* CCEffectStack.m */; };
 		12F88AEB19DDA1D20001531E /* CCEffectUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88ADD19DDA1D20001531E /* CCEffectUtils.m */; };
+		38D156121ABF0EED0088ACDF /* Zumbi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D156111ABF0EED0088ACDF /* Zumbi.swift */; };
+		38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566C1ABF44E40088ACDF /* zombie.plist */; };
+		38D1566F1ABF44E40088ACDF /* zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566D1ABF44E40088ACDF /* zombie.png */; };
 		9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */; };
 		B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B929AA101ABC97B1008A18DB /* Images.xcassets */; };
 		B929AA191ABCB4B8008A18DB /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = B929AA181ABCB4B8008A18DB /* road.png */; };
@@ -608,6 +611,9 @@
 		12F88ADB19DDA1D20001531E /* CCEffectStackProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEffectStackProtocol.h; path = Libraries/cocos2d/CCEffectStackProtocol.h; sourceTree = "<group>"; };
 		12F88ADC19DDA1D20001531E /* CCEffectUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEffectUtils.h; path = Libraries/cocos2d/CCEffectUtils.h; sourceTree = "<group>"; };
 		12F88ADD19DDA1D20001531E /* CCEffectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCEffectUtils.m; path = Libraries/cocos2d/CCEffectUtils.m; sourceTree = "<group>"; };
+		38D156111ABF0EED0088ACDF /* Zumbi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Zumbi.swift; path = Classes/Objects/Zumbi.swift; sourceTree = "<group>"; };
+		38D1566C1ABF44E40088ACDF /* zombie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie.plist; sourceTree = "<group>"; };
+		38D1566D1ABF44E40088ACDF /* zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie.png; sourceTree = "<group>"; };
 		9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
 		B929AA101ABC97B1008A18DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B929AA181ABCB4B8008A18DB /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
@@ -729,6 +735,8 @@
 			isa = PBXGroup;
 			children = (
 				B929AA181ABCB4B8008A18DB /* road.png */,
+				38D1566C1ABF44E40088ACDF /* zombie.plist */,
+				38D1566D1ABF44E40088ACDF /* zombie.png */,
 				B929AA101ABC97B1008A18DB /* Images.xcassets */,
 				B9726A3E1ABB77D00082F5E8 /* bgTheLastOfRun.png */,
 				1226620E19F00CD6001FE3B9 /* DefaultParticleFire */,
@@ -1454,6 +1462,7 @@
 		1293CF1019C08A27006A0E25 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				38D156101ABF0E9F0088ACDF /* Objects */,
 				1255542E19C09C9E00EC663C /* TSTUtils */,
 				1255543119C09CD200EC663C /* Scenes */,
 			);
@@ -1478,6 +1487,14 @@
 				1293CF2419C08A66006A0E25 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38D156101ABF0E9F0088ACDF /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				38D156111ABF0EED0088ACDF /* Zumbi.swift */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1556,6 +1573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */,
 				1255544519C0D72000EC663C /* SoundFXButtonTap.mp3 in Resources */,
 				B929AA191ABCB4B8008A18DB /* road.png in Resources */,
 				B9726A401ABB77D00082F5E8 /* bgTheLastOfRun.png in Resources */,
@@ -1563,6 +1581,7 @@
 				1226621019F00CD6001FE3B9 /* fire.png in Resources */,
 				1255545119C0D90600EC663C /* Default.png in Resources */,
 				1255545219C0D90600EC663C /* Default@2x.png in Resources */,
+				38D1566F1ABF44E40088ACDF /* zombie.png in Resources */,
 				1255544F19C0D90600EC663C /* Default-568h@2x.png in Resources */,
 				B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */,
 				1255545019C0D90600EC663C /* Default-Landscape~ipad.png in Resources */,
@@ -1647,6 +1666,7 @@
 				12F88AEA19DDA1D20001531E /* CCEffectStack.m in Sources */,
 				1293CD8D19C08A25006A0E25 /* CCResponderManager.m in Sources */,
 				1293CDBF19C08A26006A0E25 /* CCTransition.m in Sources */,
+				38D156121ABF0EED0088ACDF /* Zumbi.swift in Sources */,
 				12F88AE319DDA1D20001531E /* CCEffectGlass.m in Sources */,
 				1293CE1619C08A26006A0E25 /* OALActionManager.m in Sources */,
 				1293CD7A19C08A25006A0E25 /* CCPhysicsNode.m in Sources */,

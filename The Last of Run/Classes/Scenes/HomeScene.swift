@@ -33,8 +33,9 @@ class HomeScene : CCScene {
         label.anchorPoint = CGPointMake(0.5, 0.5)
         self.addChild(label)
         
+               
         // ToGame Button
-        let toGameButton:CCButton = CCButton(title: "Start", fontName: "Verdana-Bold", fontSize: 38.0)
+        let toGameButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("start.png") as CCSpriteFrame)
         toGameButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/4.0)
         toGameButton.anchorPoint = CGPointMake(0.5, 0.5)
         SoundPlayHelper.sharedInstance.playSoundWithControl(GameMusicAndSoundFx.SoundFXButtonTap)

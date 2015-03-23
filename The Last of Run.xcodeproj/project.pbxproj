@@ -212,6 +212,8 @@
 		B929AA191ABCB4B8008A18DB /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = B929AA181ABCB4B8008A18DB /* road.png */; };
 		B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */; };
 		B9726A401ABB77D00082F5E8 /* bgTheLastOfRun.png in Resources */ = {isa = PBXBuildFile; fileRef = B9726A3E1ABB77D00082F5E8 /* bgTheLastOfRun.png */; };
+		B9F9000A1AC0A95D007D14B5 /* carroquebrado.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F900091AC0A95D007D14B5 /* carroquebrado.png */; };
+		B9F9000C1AC0AA75007D14B5 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F9000B1AC0AA75007D14B5 /* start.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -627,6 +629,8 @@
 		B929AA181ABCB4B8008A18DB /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieTheme.mp3; sourceTree = "<group>"; };
 		B9726A3E1ABB77D00082F5E8 /* bgTheLastOfRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTheLastOfRun.png; sourceTree = "<group>"; };
+		B9F900091AC0A95D007D14B5 /* carroquebrado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carroquebrado.png; sourceTree = "<group>"; };
+		B9F9000B1AC0AA75007D14B5 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -743,6 +747,8 @@
 			isa = PBXGroup;
 			children = (
 				38327D721ABFC1EF007C4EDE /* car.png */,
+				B9F9000B1AC0AA75007D14B5 /* start.png */,
+				B9F900091AC0A95D007D14B5 /* carroquebrado.png */,
 				B929AA181ABCB4B8008A18DB /* road.png */,
 				38D1566C1ABF44E40088ACDF /* zombie.plist */,
 				38D1566D1ABF44E40088ACDF /* zombie.png */,
@@ -1598,10 +1604,12 @@
 				1255544519C0D72000EC663C /* SoundFXButtonTap.mp3 in Resources */,
 				B929AA191ABCB4B8008A18DB /* road.png in Resources */,
 				B9726A401ABB77D00082F5E8 /* bgTheLastOfRun.png in Resources */,
+				B9F9000A1AC0A95D007D14B5 /* carroquebrado.png in Resources */,
 				B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */,
 				1226621019F00CD6001FE3B9 /* fire.png in Resources */,
 				38327D711ABFBBBD007C4EDE /* ShipBlow.png in Resources */,
 				38327D701ABFBBBD007C4EDE /* ShipBlow.plist in Resources */,
+				B9F9000C1AC0AA75007D14B5 /* start.png in Resources */,
 				1255545119C0D90600EC663C /* Default.png in Resources */,
 				1255545219C0D90600EC663C /* Default@2x.png in Resources */,
 				38D1566F1ABF44E40088ACDF /* zombie.png in Resources */,

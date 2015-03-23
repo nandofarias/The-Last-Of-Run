@@ -10,8 +10,6 @@
 	<string>The Last of Run</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>7f0ca432-ab7c-d51d-4cf1-ce57b7db7bff++505</key>
-		<string>https://github.com/NandoFarias/The-Last-Of-Run/trunk</string>
 		<key>D071E63355E4AB30F6096B77258D4652BD3C7CA6</key>
 		<string>https://github.com/NandoFarias/The-Last-Of-Run.git</string>
 	</dict>
@@ -19,32 +17,17 @@
 	<string>The Last of Run.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>7f0ca432-ab7c-d51d-4cf1-ce57b7db7bff++505</key>
-		<string>../..</string>
 		<key>D071E63355E4AB30F6096B77258D4652BD3C7CA6</key>
-		<string>../../../The%20Last%20of%20Run</string>
-	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>7f0ca432-ab7c-d51d-4cf1-ce57b7db7bff++505</key>
-		<string>https://github.com/NandoFarias/The-Last-Of-Run</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/NandoFarias/The-Last-Of-Run/trunk/The%20Last%20of%20Run.xcodeproj</string>
+	<string>https://github.com/NandoFarias/The-Last-Of-Run.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>7f0ca432-ab7c-d51d-4cf1-ce57b7db7bff++505</string>
+	<string>D071E63355E4AB30F6096B77258D4652BD3C7CA6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7f0ca432-ab7c-d51d-4cf1-ce57b7db7bff++505</string>
-			<key>IDESourceControlWCCName</key>
-			<string>The-Last-Of-Run</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

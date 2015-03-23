@@ -208,6 +208,7 @@
 		38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566C1ABF44E40088ACDF /* zombie.plist */; };
 		38D1566F1ABF44E40088ACDF /* zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566D1ABF44E40088ACDF /* zombie.png */; };
 		9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */; };
+		AC5A80441AC0D95B001220C3 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A80431AC0D95B001220C3 /* SettingsScene.swift */; };
 		B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B929AA101ABC97B1008A18DB /* Images.xcassets */; };
 		B929AA191ABCB4B8008A18DB /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = B929AA181ABCB4B8008A18DB /* road.png */; };
 		B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */; };
@@ -625,6 +626,7 @@
 		38D1566C1ABF44E40088ACDF /* zombie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie.plist; sourceTree = "<group>"; };
 		38D1566D1ABF44E40088ACDF /* zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie.png; sourceTree = "<group>"; };
 		9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
+		AC5A80431AC0D95B001220C3 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		B929AA101ABC97B1008A18DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B929AA181ABCB4B8008A18DB /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieTheme.mp3; sourceTree = "<group>"; };
@@ -686,6 +688,7 @@
 				1255543419C09CD200EC663C /* LoadingScene.swift */,
 				1255543319C09CD200EC663C /* HomeScene.swift */,
 				1255543219C09CD200EC663C /* GameScene.swift */,
+				AC5A80431AC0D95B001220C3 /* SettingsScene.swift */,
 			);
 			name = Scenes;
 			path = Classes/Scenes;
@@ -1634,6 +1637,7 @@
 				1293CE2F19C08A26006A0E25 /* ALBuffer.m in Sources */,
 				9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */,
 				1293CE3519C08A26006A0E25 /* ALChannelSource.m in Sources */,
+				AC5A80441AC0D95B001220C3 /* SettingsScene.swift in Sources */,
 				1293CE5819C08A26006A0E25 /* IOSVersion.m in Sources */,
 				1293CE3E19C08A26006A0E25 /* ALListener.m in Sources */,
 				1293CDDE19C08A26006A0E25 /* CCGLView.m in Sources */,

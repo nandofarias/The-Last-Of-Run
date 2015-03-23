@@ -10,6 +10,8 @@
 	<string>The Last of Run</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>7f0ca432-ab7c-d51d-4cf1-ce57b7db7bff++505</key>
+		<string>https://github.com/NandoFarias/The-Last-Of-Run/trunk</string>
 		<key>D071E63355E4AB30F6096B77258D4652BD3C7CA6</key>
 		<string>https://github.com/NandoFarias/The-Last-Of-Run.git</string>
 	</dict>

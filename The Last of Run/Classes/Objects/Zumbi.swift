@@ -28,6 +28,19 @@ class Zumbi : CCSprite {
         self.spriteZumbi!.position = CGPointMake(0.0, 0.0);
         self.addChild(self.spriteZumbi, z:2)
         
+        
+        // Configuracoes default
+        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.contentSize.width, self.contentSize.height), cornerRadius: 0.0)
+        self.physicsBody.type = CCPhysicsBodyType.Kinematic
+        self.physicsBody.friction = 1.0
+        self.physicsBody.elasticity = 0.1
+        self.physicsBody.mass = 100.0
+        self.physicsBody.density = 100.0
+        self.physicsBody.collisionType = "Zumbi"
+        self.physicsBody.collisionCategories = ["Zumbi"]
+        self.physicsBody.collisionMask = ["PlayerCar"]
+        
+        
     }
     
     override init(CGImage image: CGImage!, key: String!) {
@@ -53,16 +66,7 @@ class Zumbi : CCSprite {
     override init(imageNamed imageName: String!) {
         super.init(imageNamed: imageName)
         
-        // Configuracoes default
-        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.contentSize.width, self.contentSize.height), cornerRadius: 0.0)
-        self.physicsBody.type = CCPhysicsBodyType.Kinematic
-        self.physicsBody.friction = 1.0
-        self.physicsBody.elasticity = 0.1
-        self.physicsBody.mass = 100.0
-        self.physicsBody.density = 100.0
-        self.physicsBody.collisionType = "Zumbi"
-        self.physicsBody.collisionCategories = ["Zumbi"]
-        self.physicsBody.collisionMask = ["PlayerCar"]
+
     }
     
     override func onEnter() {
@@ -103,7 +107,7 @@ class Zumbi : CCSprite {
     // MARK: - Public Methods
     // MARK: - Public Methods
     internal func moveMe() {
-        let speed:CGFloat = CGFloat(arc4random_uniform(4) + 2)
+        let speed:CGFloat = CGFloat(arc4random_uniform(4) + 3)
         self.runAction(CCActionSequence.actionOne(CCActionMoveTo.actionWithDuration(CCTime(speed), position: CGPointMake(self.position.x, self.height() * -2)) as CCActionFiniteTime,
             two: CCActionCallBlock.actionWithBlock({ _ in
                 self.stopAllSpriteActions()

@@ -200,6 +200,10 @@
 		12F88AE919DDA1D20001531E /* CCEffectSaturation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88AD719DDA1D20001531E /* CCEffectSaturation.m */; };
 		12F88AEA19DDA1D20001531E /* CCEffectStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88ADA19DDA1D20001531E /* CCEffectStack.m */; };
 		12F88AEB19DDA1D20001531E /* CCEffectUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88ADD19DDA1D20001531E /* CCEffectUtils.m */; };
+		38327D6A1ABFA63C007C4EDE /* PlayerCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38327D691ABFA63C007C4EDE /* PlayerCar.swift */; };
+		38327D701ABFBBBD007C4EDE /* ShipBlow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38327D6E1ABFBBBD007C4EDE /* ShipBlow.plist */; };
+		38327D711ABFBBBD007C4EDE /* ShipBlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 38327D6F1ABFBBBD007C4EDE /* ShipBlow.png */; };
+		38327D731ABFC1EF007C4EDE /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 38327D721ABFC1EF007C4EDE /* car.png */; };
 		38D156121ABF0EED0088ACDF /* Zumbi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D156111ABF0EED0088ACDF /* Zumbi.swift */; };
 		38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566C1ABF44E40088ACDF /* zombie.plist */; };
 		38D1566F1ABF44E40088ACDF /* zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566D1ABF44E40088ACDF /* zombie.png */; };
@@ -611,6 +615,10 @@
 		12F88ADB19DDA1D20001531E /* CCEffectStackProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEffectStackProtocol.h; path = Libraries/cocos2d/CCEffectStackProtocol.h; sourceTree = "<group>"; };
 		12F88ADC19DDA1D20001531E /* CCEffectUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEffectUtils.h; path = Libraries/cocos2d/CCEffectUtils.h; sourceTree = "<group>"; };
 		12F88ADD19DDA1D20001531E /* CCEffectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCEffectUtils.m; path = Libraries/cocos2d/CCEffectUtils.m; sourceTree = "<group>"; };
+		38327D691ABFA63C007C4EDE /* PlayerCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerCar.swift; path = Classes/Objects/PlayerCar.swift; sourceTree = "<group>"; };
+		38327D6E1ABFBBBD007C4EDE /* ShipBlow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShipBlow.plist; sourceTree = "<group>"; };
+		38327D6F1ABFBBBD007C4EDE /* ShipBlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShipBlow.png; sourceTree = "<group>"; };
+		38327D721ABFC1EF007C4EDE /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		38D156111ABF0EED0088ACDF /* Zumbi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Zumbi.swift; path = Classes/Objects/Zumbi.swift; sourceTree = "<group>"; };
 		38D1566C1ABF44E40088ACDF /* zombie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie.plist; sourceTree = "<group>"; };
 		38D1566D1ABF44E40088ACDF /* zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie.png; sourceTree = "<group>"; };
@@ -734,11 +742,13 @@
 		1293CCB219C08A25006A0E25 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				38327D721ABFC1EF007C4EDE /* car.png */,
 				B929AA181ABCB4B8008A18DB /* road.png */,
 				38D1566C1ABF44E40088ACDF /* zombie.plist */,
 				38D1566D1ABF44E40088ACDF /* zombie.png */,
 				B929AA101ABC97B1008A18DB /* Images.xcassets */,
 				B9726A3E1ABB77D00082F5E8 /* bgTheLastOfRun.png */,
+				38327D6D1ABFBBBD007C4EDE /* Particulas */,
 				1226620E19F00CD6001FE3B9 /* DefaultParticleFire */,
 				1255544A19C0D90600EC663C /* Splash */,
 				1255544119C0D72000EC663C /* Musics and SoundsFX */,
@@ -1489,10 +1499,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		38327D6D1ABFBBBD007C4EDE /* Particulas */ = {
+			isa = PBXGroup;
+			children = (
+				38327D6E1ABFBBBD007C4EDE /* ShipBlow.plist */,
+				38327D6F1ABFBBBD007C4EDE /* ShipBlow.png */,
+			);
+			path = Particulas;
+			sourceTree = "<group>";
+		};
 		38D156101ABF0E9F0088ACDF /* Objects */ = {
 			isa = PBXGroup;
 			children = (
 				38D156111ABF0EED0088ACDF /* Zumbi.swift */,
+				38327D691ABFA63C007C4EDE /* PlayerCar.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1573,12 +1593,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38327D731ABFC1EF007C4EDE /* car.png in Resources */,
 				38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */,
 				1255544519C0D72000EC663C /* SoundFXButtonTap.mp3 in Resources */,
 				B929AA191ABCB4B8008A18DB /* road.png in Resources */,
 				B9726A401ABB77D00082F5E8 /* bgTheLastOfRun.png in Resources */,
 				B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */,
 				1226621019F00CD6001FE3B9 /* fire.png in Resources */,
+				38327D711ABFBBBD007C4EDE /* ShipBlow.png in Resources */,
+				38327D701ABFBBBD007C4EDE /* ShipBlow.plist in Resources */,
 				1255545119C0D90600EC663C /* Default.png in Resources */,
 				1255545219C0D90600EC663C /* Default@2x.png in Resources */,
 				38D1566F1ABF44E40088ACDF /* zombie.png in Resources */,
@@ -1665,6 +1688,7 @@
 				12F88AE819DDA1D20001531E /* CCEffectRenderer.m in Sources */,
 				12F88AEA19DDA1D20001531E /* CCEffectStack.m in Sources */,
 				1293CD8D19C08A25006A0E25 /* CCResponderManager.m in Sources */,
+				38327D6A1ABFA63C007C4EDE /* PlayerCar.swift in Sources */,
 				1293CDBF19C08A26006A0E25 /* CCTransition.m in Sources */,
 				38D156121ABF0EED0088ACDF /* Zumbi.swift in Sources */,
 				12F88AE319DDA1D20001531E /* CCEffectGlass.m in Sources */,

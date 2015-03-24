@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Class Definition
-class SettingsScene: CCScene, CCPhysicsCollisionDelegate {
+class SettingsScene: CCScene {
     // MARK: - Public Objects
     
     // MARK: - Private Objects

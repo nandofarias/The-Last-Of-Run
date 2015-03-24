@@ -213,6 +213,8 @@
 		AC50413B1AC0E1D000BE2A41 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041361AC0E1D000BE2A41 /* start.png */; };
 		AC50413E1AC0E26300BE2A41 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50413C1AC0E26300BE2A41 /* HomeScene.swift */; };
 		AC50413F1AC0E26300BE2A41 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */; };
+		AC5041411AC0E6B600BE2A41 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041401AC0E6B600BE2A41 /* settings.png */; };
+		AC5041431AC0E6DD00BE2A41 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041421AC0E6DD00BE2A41 /* back.png */; };
 		B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B929AA101ABC97B1008A18DB /* Images.xcassets */; };
 		B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */; };
 		B9F9000A1AC0A95D007D14B5 /* carroquebrado.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F900091AC0A95D007D14B5 /* carroquebrado.png */; };
@@ -632,6 +634,8 @@
 		AC5041361AC0E1D000BE2A41 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		AC50413C1AC0E26300BE2A41 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
+		AC5041401AC0E6B600BE2A41 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		AC5041421AC0E6DD00BE2A41 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		B929AA101ABC97B1008A18DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieTheme.mp3; sourceTree = "<group>"; };
 		B9F900091AC0A95D007D14B5 /* carroquebrado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carroquebrado.png; sourceTree = "<group>"; };
@@ -690,7 +694,6 @@
 				AC50413C1AC0E26300BE2A41 /* HomeScene.swift */,
 				AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */,
 				1255543219C09CD200EC663C /* GameScene.swift */,
-				AC5A80431AC0D95B001220C3 /* SettingsScene.swift */,
 			);
 			name = Scenes;
 			path = Classes/Scenes;
@@ -756,7 +759,9 @@
 				38D1566C1ABF44E40088ACDF /* zombie.plist */,
 				AC5041321AC0E1D000BE2A41 /* bgLoading.png */,
 				AC5041331AC0E1D000BE2A41 /* bgTheLastOfRun.png */,
+				AC5041421AC0E6DD00BE2A41 /* back.png */,
 				AC5041341AC0E1D000BE2A41 /* gameover.png */,
+				AC5041401AC0E6B600BE2A41 /* settings.png */,
 				AC5041351AC0E1D000BE2A41 /* road.png */,
 				AC5041361AC0E1D000BE2A41 /* start.png */,
 				38D1566D1ABF44E40088ACDF /* zombie.png */,
@@ -1621,8 +1626,10 @@
 				1255545219C0D90600EC663C /* Default@2x.png in Resources */,
 				AC50413A1AC0E1D000BE2A41 /* road.png in Resources */,
 				38D1566F1ABF44E40088ACDF /* zombie.png in Resources */,
+				AC5041411AC0E6B600BE2A41 /* settings.png in Resources */,
 				1255544F19C0D90600EC663C /* Default-568h@2x.png in Resources */,
 				B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */,
+				AC5041431AC0E6DD00BE2A41 /* back.png in Resources */,
 				1255545019C0D90600EC663C /* Default-Landscape~ipad.png in Resources */,
 				1255544419C0D72000EC663C /* MusicInGame.mp3 in Resources */,
 				AC5041391AC0E1D000BE2A41 /* gameover.png in Resources */,
@@ -1643,7 +1650,6 @@
 				1293CE2F19C08A26006A0E25 /* ALBuffer.m in Sources */,
 				9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */,
 				1293CE3519C08A26006A0E25 /* ALChannelSource.m in Sources */,
-				AC5A80441AC0D95B001220C3 /* SettingsScene.swift in Sources */,
 				1293CE5819C08A26006A0E25 /* IOSVersion.m in Sources */,
 				1293CE3E19C08A26006A0E25 /* ALListener.m in Sources */,
 				1293CDDE19C08A26006A0E25 /* CCGLView.m in Sources */,

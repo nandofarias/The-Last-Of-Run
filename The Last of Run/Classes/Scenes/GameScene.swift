@@ -92,7 +92,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.physicsWorld.addChild(self.parallaxNode, z: ObjectsLayers.Background.rawValue)
         
         // Back button
-        let backButton:CCButton = CCButton(title: "[ Back ]", fontName: "Verdana-Bold", fontSize: 18.0)
+        let backButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("back.png") as CCSpriteFrame)
         backButton.position = CGPointMake(screenSize.width, screenSize.height)
         backButton.anchorPoint = CGPointMake(1.0, 1.0)
         backButton.zoomWhenHighlighted = false

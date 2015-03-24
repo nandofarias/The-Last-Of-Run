@@ -19,7 +19,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     private var scoreLabel:CCLabelTTF = CCLabelTTF(string:"Kills: 0", fontName:"Verdana", fontSize:32.0)
     var shieldLabel:CCLabelTTF = CCLabelTTF(string: "Escudo: 100.0%", fontName: "Verdana-Bold", fontSize: 18.0)
     var physicsWorld:CCPhysicsNode = CCPhysicsNode()
-    var player:PlayerCar = PlayerCar(imageNamed:"car.png")
+    var player:PlayerCar = PlayerCar(imageNamed:"Carrinho1.png")
     var canPlay:Bool = true
     var isTouching:Bool = false
     var parallaxNode:CCParallaxNode = CCParallaxNode()
@@ -165,6 +165,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
             
             if ( centro > locationInView.x) {
                 self.player.position = CGPointMake(self.player.position.x - 20.0, self.player.position.y)
+                self.player.changeToJumping()
             } else {
                 self.player.position = CGPointMake(self.player.position.x + 20.0, self.player.position.y)
             }

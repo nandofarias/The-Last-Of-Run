@@ -40,7 +40,7 @@ class HomeScene : CCScene {
         
         // To Settings Button
         let toSettingsButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("settings.png") as CCSpriteFrame)
-        toSettingsButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/4.0)
+        toSettingsButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/8.0)
         toSettingsButton.anchorPoint = CGPointMake(0.5, 0.5)
         SoundPlayHelper.sharedInstance.playSoundWithControl(GameMusicAndSoundFx.SoundFXButtonTap)
         toSettingsButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.SettingsScene, isFade:true)}

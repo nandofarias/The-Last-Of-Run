@@ -1,14 +1,14 @@
 //
-//  SettingsScene.swift
-//  The Last of Run
+//  GameScene.swift
+//  CocosSwift
 //
-//  Created by Usuário Convidado on 23/03/15.
-//  Copyright (c) 2015 Flameworks. All rights reserved.
+//  Created by Thales Toniolo on 10/09/14.
+//  Copyright (c) 2014 Flameworks. All rights reserved.
 //
-
 import Foundation
 
-class SettingsScene : CCScene {
+// MARK: - Class Definition
+class SettingsScene: CCScene, CCPhysicsCollisionDelegate {
     // MARK: - Public Objects
     
     // MARK: - Private Objects
@@ -25,8 +25,9 @@ class SettingsScene : CCScene {
         
         // Create a colored background (Dark Grey)
         let background:CCSprite = CCSprite(imageNamed: "bgSettings.png")
+        background.position = CGPointMake(screenSize.width/2, screenSize.height/2)
+        background.anchorPoint = CGPointMake(0.5, 0.5)
         self.addChild(background)
-        
         
         
     }
@@ -51,4 +52,6 @@ class SettingsScene : CCScene {
         super.onExit()
         CCTextureCache.sharedTextureCache().removeAllTextures()
     }
+    
+    
 }

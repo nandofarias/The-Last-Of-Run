@@ -201,13 +201,11 @@
 		38327D6A1ABFA63C007C4EDE /* PlayerCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38327D691ABFA63C007C4EDE /* PlayerCar.swift */; };
 		38327D701ABFBBBD007C4EDE /* ShipBlow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38327D6E1ABFBBBD007C4EDE /* ShipBlow.plist */; };
 		38327D711ABFBBBD007C4EDE /* ShipBlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 38327D6F1ABFBBBD007C4EDE /* ShipBlow.png */; };
-		38327D731ABFC1EF007C4EDE /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 38327D721ABFC1EF007C4EDE /* car.png */; };
 		38D156121ABF0EED0088ACDF /* Zumbi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D156111ABF0EED0088ACDF /* Zumbi.swift */; };
 		38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566C1ABF44E40088ACDF /* zombie.plist */; };
 		38D1566F1ABF44E40088ACDF /* zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566D1ABF44E40088ACDF /* zombie.png */; };
 		9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */; };
 		AC11325B1AC0E60800985D8D /* bgSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = AC11325A1AC0E60800985D8D /* bgSettings.png */; };
-		AC11325D1AC0E6D600985D8D /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11325C1AC0E6D600985D8D /* SettingsScene.swift */; };
 		AC5041371AC0E1D000BE2A41 /* bgLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041321AC0E1D000BE2A41 /* bgLoading.png */; };
 		AC5041381AC0E1D000BE2A41 /* bgTheLastOfRun.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041331AC0E1D000BE2A41 /* bgTheLastOfRun.png */; };
 		AC5041391AC0E1D000BE2A41 /* gameover.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041341AC0E1D000BE2A41 /* gameover.png */; };
@@ -215,11 +213,18 @@
 		AC50413B1AC0E1D000BE2A41 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041361AC0E1D000BE2A41 /* start.png */; };
 		AC50413E1AC0E26300BE2A41 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50413C1AC0E26300BE2A41 /* HomeScene.swift */; };
 		AC50413F1AC0E26300BE2A41 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */; };
-		AC5041411AC0E6B600BE2A41 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041401AC0E6B600BE2A41 /* settings.png */; };
 		AC5041431AC0E6DD00BE2A41 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041421AC0E6DD00BE2A41 /* back.png */; };
+		AC5041451AC0E87200BE2A41 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5041441AC0E87200BE2A41 /* SettingsScene.swift */; };
+		AC5041471AC0E9B300BE2A41 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041461AC0E9B300BE2A41 /* settings.png */; };
+		AC50414B1AC0EA5C00BE2A41 /* Carrinho.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5041491AC0EA5C00BE2A41 /* Carrinho.plist */; };
+		AC50414C1AC0EA5C00BE2A41 /* Carrinho.png in Resources */ = {isa = PBXBuildFile; fileRef = AC50414A1AC0EA5C00BE2A41 /* Carrinho.png */; };
+		AC5041501AC0EA9900BE2A41 /* Boneco.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC50414E1AC0EA9900BE2A41 /* Boneco.plist */; };
+		AC5041511AC0EA9900BE2A41 /* Boneco.png in Resources */ = {isa = PBXBuildFile; fileRef = AC50414F1AC0EA9900BE2A41 /* Boneco.png */; };
+		AC5041551AC0EC9F00BE2A41 /* car02.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041521AC0EC9F00BE2A41 /* car02.png */; };
+		AC5041561AC0EC9F00BE2A41 /* car01.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041531AC0EC9F00BE2A41 /* car01.png */; };
+		AC5041571AC0EC9F00BE2A41 /* car03.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041541AC0EC9F00BE2A41 /* car03.png */; };
 		B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B929AA101ABC97B1008A18DB /* Images.xcassets */; };
 		B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */; };
-		B9F9000A1AC0A95D007D14B5 /* carroquebrado.png in Resources */ = {isa = PBXBuildFile; fileRef = B9F900091AC0A95D007D14B5 /* carroquebrado.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -624,13 +629,11 @@
 		38327D691ABFA63C007C4EDE /* PlayerCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerCar.swift; path = Classes/Objects/PlayerCar.swift; sourceTree = "<group>"; };
 		38327D6E1ABFBBBD007C4EDE /* ShipBlow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShipBlow.plist; sourceTree = "<group>"; };
 		38327D6F1ABFBBBD007C4EDE /* ShipBlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShipBlow.png; sourceTree = "<group>"; };
-		38327D721ABFC1EF007C4EDE /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		38D156111ABF0EED0088ACDF /* Zumbi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Zumbi.swift; path = Classes/Objects/Zumbi.swift; sourceTree = "<group>"; };
 		38D1566C1ABF44E40088ACDF /* zombie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie.plist; sourceTree = "<group>"; };
 		38D1566D1ABF44E40088ACDF /* zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie.png; sourceTree = "<group>"; };
 		9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
 		AC11325A1AC0E60800985D8D /* bgSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgSettings.png; sourceTree = "<group>"; };
-		AC11325C1AC0E6D600985D8D /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		AC5041321AC0E1D000BE2A41 /* bgLoading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLoading.png; sourceTree = "<group>"; };
 		AC5041331AC0E1D000BE2A41 /* bgTheLastOfRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTheLastOfRun.png; sourceTree = "<group>"; };
 		AC5041341AC0E1D000BE2A41 /* gameover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameover.png; sourceTree = "<group>"; };
@@ -638,11 +641,18 @@
 		AC5041361AC0E1D000BE2A41 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		AC50413C1AC0E26300BE2A41 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
-		AC5041401AC0E6B600BE2A41 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		AC5041421AC0E6DD00BE2A41 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		AC5041441AC0E87200BE2A41 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		AC5041461AC0E9B300BE2A41 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		AC5041491AC0EA5C00BE2A41 /* Carrinho.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Carrinho.plist; sourceTree = "<group>"; };
+		AC50414A1AC0EA5C00BE2A41 /* Carrinho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Carrinho.png; sourceTree = "<group>"; };
+		AC50414E1AC0EA9900BE2A41 /* Boneco.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Boneco.plist; sourceTree = "<group>"; };
+		AC50414F1AC0EA9900BE2A41 /* Boneco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Boneco.png; sourceTree = "<group>"; };
+		AC5041521AC0EC9F00BE2A41 /* car02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car02.png; sourceTree = "<group>"; };
+		AC5041531AC0EC9F00BE2A41 /* car01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car01.png; sourceTree = "<group>"; };
+		AC5041541AC0EC9F00BE2A41 /* car03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car03.png; sourceTree = "<group>"; };
 		B929AA101ABC97B1008A18DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieTheme.mp3; sourceTree = "<group>"; };
-		B9F900091AC0A95D007D14B5 /* carroquebrado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carroquebrado.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -698,6 +708,7 @@
 				AC50413C1AC0E26300BE2A41 /* HomeScene.swift */,
 				AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */,
 				1255543219C09CD200EC663C /* GameScene.swift */,
+				AC5041441AC0E87200BE2A41 /* SettingsScene.swift */,
 			);
 			name = Scenes;
 			path = Classes/Scenes;
@@ -759,18 +770,21 @@
 			isa = PBXGroup;
 			children = (
 				AC11325A1AC0E60800985D8D /* bgSettings.png */,
-				38327D721ABFC1EF007C4EDE /* car.png */,
-				B9F900091AC0A95D007D14B5 /* carroquebrado.png */,
 				38D1566C1ABF44E40088ACDF /* zombie.plist */,
 				AC5041321AC0E1D000BE2A41 /* bgLoading.png */,
 				AC5041331AC0E1D000BE2A41 /* bgTheLastOfRun.png */,
 				AC5041421AC0E6DD00BE2A41 /* back.png */,
 				AC5041341AC0E1D000BE2A41 /* gameover.png */,
-				AC5041401AC0E6B600BE2A41 /* settings.png */,
+				AC5041521AC0EC9F00BE2A41 /* car02.png */,
+				AC5041531AC0EC9F00BE2A41 /* car01.png */,
+				AC5041541AC0EC9F00BE2A41 /* car03.png */,
 				AC5041351AC0E1D000BE2A41 /* road.png */,
+				AC5041461AC0E9B300BE2A41 /* settings.png */,
 				AC5041361AC0E1D000BE2A41 /* start.png */,
 				38D1566D1ABF44E40088ACDF /* zombie.png */,
 				B929AA101ABC97B1008A18DB /* Images.xcassets */,
+				AC50414D1AC0EA6700BE2A41 /* Boneco */,
+				AC5041481AC0EA3700BE2A41 /* Carro */,
 				38327D6D1ABFBBBD007C4EDE /* Particulas */,
 				1226620E19F00CD6001FE3B9 /* DefaultParticleFire */,
 				1255544A19C0D90600EC663C /* Splash */,
@@ -1540,6 +1554,24 @@
 			name = Objects;
 			sourceTree = "<group>";
 		};
+		AC5041481AC0EA3700BE2A41 /* Carro */ = {
+			isa = PBXGroup;
+			children = (
+				AC5041491AC0EA5C00BE2A41 /* Carrinho.plist */,
+				AC50414A1AC0EA5C00BE2A41 /* Carrinho.png */,
+			);
+			name = Carro;
+			sourceTree = "<group>";
+		};
+		AC50414D1AC0EA6700BE2A41 /* Boneco */ = {
+			isa = PBXGroup;
+			children = (
+				AC50414E1AC0EA9900BE2A41 /* Boneco.plist */,
+				AC50414F1AC0EA9900BE2A41 /* Boneco.png */,
+			);
+			name = Boneco;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1616,29 +1648,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38327D731ABFC1EF007C4EDE /* car.png in Resources */,
+				AC5041511AC0EA9900BE2A41 /* Boneco.png in Resources */,
 				38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */,
 				AC50413B1AC0E1D000BE2A41 /* start.png in Resources */,
 				AC5041381AC0E1D000BE2A41 /* bgTheLastOfRun.png in Resources */,
+				AC5041551AC0EC9F00BE2A41 /* car02.png in Resources */,
 				1255544519C0D72000EC663C /* SoundFXButtonTap.mp3 in Resources */,
-				B9F9000A1AC0A95D007D14B5 /* carroquebrado.png in Resources */,
 				B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */,
 				1226621019F00CD6001FE3B9 /* fire.png in Resources */,
+				AC5041501AC0EA9900BE2A41 /* Boneco.plist in Resources */,
 				38327D711ABFBBBD007C4EDE /* ShipBlow.png in Resources */,
 				AC5041371AC0E1D000BE2A41 /* bgLoading.png in Resources */,
 				38327D701ABFBBBD007C4EDE /* ShipBlow.plist in Resources */,
 				AC11325B1AC0E60800985D8D /* bgSettings.png in Resources */,
 				1255545119C0D90600EC663C /* Default.png in Resources */,
 				1255545219C0D90600EC663C /* Default@2x.png in Resources */,
+				AC50414B1AC0EA5C00BE2A41 /* Carrinho.plist in Resources */,
 				AC50413A1AC0E1D000BE2A41 /* road.png in Resources */,
 				38D1566F1ABF44E40088ACDF /* zombie.png in Resources */,
-				AC5041411AC0E6B600BE2A41 /* settings.png in Resources */,
 				1255544F19C0D90600EC663C /* Default-568h@2x.png in Resources */,
 				B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */,
 				AC5041431AC0E6DD00BE2A41 /* back.png in Resources */,
 				1255545019C0D90600EC663C /* Default-Landscape~ipad.png in Resources */,
+				AC5041471AC0E9B300BE2A41 /* settings.png in Resources */,
 				1255544419C0D72000EC663C /* MusicInGame.mp3 in Resources */,
 				AC5041391AC0E1D000BE2A41 /* gameover.png in Resources */,
+				AC5041571AC0EC9F00BE2A41 /* car03.png in Resources */,
+				AC5041561AC0EC9F00BE2A41 /* car01.png in Resources */,
+				AC50414C1AC0EA5C00BE2A41 /* Carrinho.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1656,6 +1693,7 @@
 				1293CE2F19C08A26006A0E25 /* ALBuffer.m in Sources */,
 				9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */,
 				1293CE3519C08A26006A0E25 /* ALChannelSource.m in Sources */,
+				AC5041451AC0E87200BE2A41 /* SettingsScene.swift in Sources */,
 				1293CE5819C08A26006A0E25 /* IOSVersion.m in Sources */,
 				1293CE3E19C08A26006A0E25 /* ALListener.m in Sources */,
 				1293CDDE19C08A26006A0E25 /* CCGLView.m in Sources */,

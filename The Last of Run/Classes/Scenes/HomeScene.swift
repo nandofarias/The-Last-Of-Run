@@ -24,14 +24,10 @@ class HomeScene : CCScene {
     func createSceneObjects(){
     
         // Create a colored background (Dark Grey)
-        let background:CCNodeColor = CCNodeColor(color: CCColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0))
+        let background:CCSprite = CCSprite(imageNamed: "bgTheLastOfRun.png")
+        background.position = CGPointMake(screenSize.width/2, screenSize.height/2)
+        background.anchorPoint = CGPointMake(0.5, 0.5)
         self.addChild(background)
-        
-        // Logo
-        let label:CCSprite = CCSprite(imageNamed: "bgTheLastOfRun.png")
-        label.position = CGPointMake(screenSize.width/2, screenSize.height/2 + 40)
-        label.anchorPoint = CGPointMake(0.5, 0.5)
-        self.addChild(label)
         
                
         // ToGame Button

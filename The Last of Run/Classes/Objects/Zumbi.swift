@@ -23,22 +23,21 @@ class Zumbi : CCSprite {
         super.init()
         
         // Cria o sprite da barata animado
-        self.spriteZumbi = self.gerarAnimacaoSpriteWithName("z", aQtdFrames: 11)
-        self.spriteZumbi!.anchorPoint = CGPointMake(0.0, 0.0);
-        self.spriteZumbi!.position = CGPointMake(0.0, 0.0);
-        self.addChild(self.spriteZumbi, z:2)
-        
-        
-        // Configuracoes default
-        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.contentSize.width, self.contentSize.height), cornerRadius: 0.0)
-        self.physicsBody.type = CCPhysicsBodyType.Kinematic
-        self.physicsBody.friction = 1.0
-        self.physicsBody.elasticity = 0.1
-        self.physicsBody.mass = 100.0
-        self.physicsBody.density = 100.0
-        self.physicsBody.collisionType = "Zumbi"
-        self.physicsBody.collisionCategories = ["Zumbi"]
-        self.physicsBody.collisionMask = ["PlayerCar"]
+//        self.spriteZumbi = self.gerarAnimacaoSpriteWithName("z", aQtdFrames: 11)
+//        self.spriteZumbi!.anchorPoint = CGPointMake(0.0, 0.0);
+//        self.spriteZumbi!.position = CGPointMake(0.0, 0.0);
+//        self.addChild(self.spriteZumbi, z:2)
+
+//        // Configuracoes default
+//        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.spriteZumbi!.contentSize.width, self.spriteZumbi!.contentSize.height), cornerRadius: 0.0)
+//        self.physicsBody.type = CCPhysicsBodyType.Kinematic
+//        self.physicsBody.friction = 1.0
+//        self.physicsBody.elasticity = 0.1
+//        self.physicsBody.mass = 100.0
+//        self.physicsBody.density = 100.0
+//        self.physicsBody.collisionType = "Zumbi"
+//        self.physicsBody.collisionCategories = ["Zumbi"]
+//        self.physicsBody.collisionMask = ["PlayerCar"]
         
         
     }
@@ -66,7 +65,16 @@ class Zumbi : CCSprite {
     override init(imageNamed imageName: String!) {
         super.init(imageNamed: imageName)
         
-
+        // Configuracoes default
+        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.contentSize.width, self.contentSize.height), cornerRadius: 0.0)
+        self.physicsBody.type = CCPhysicsBodyType.Kinematic
+        self.physicsBody.friction = 1.0
+        self.physicsBody.elasticity = 0.1
+        self.physicsBody.mass = 100.0
+        self.physicsBody.density = 100.0
+        self.physicsBody.collisionType = "Zumbi"
+        self.physicsBody.collisionCategories = ["Zumbi"]
+        self.physicsBody.collisionMask = ["PlayerCar"]
     }
     
     override func onEnter() {
@@ -75,7 +83,7 @@ class Zumbi : CCSprite {
     }
     
     convenience init(event:Selector, target:AnyObject) {
-        self.init()
+        self.init(imageNamed: "z2.png")
         
         self.eventSelector = event
         self.targetID = target
@@ -117,16 +125,16 @@ class Zumbi : CCSprite {
     }
     
     internal func stopAllSpriteActions() {
-        self.spriteZumbi!.stopAllActions()
+        self.stopAllActions()
         self.stopAllActions()
     }
     
     internal func width() -> CGFloat {
-        return self.spriteZumbi!.boundingBox().size.width
+        return self.boundingBox().size.width
     }
     
     internal func height() -> CGFloat {
-        return self.spriteZumbi!.boundingBox().size.height
+        return self.boundingBox().size.height
     }
     
     // MARK: - Delegates/Datasources

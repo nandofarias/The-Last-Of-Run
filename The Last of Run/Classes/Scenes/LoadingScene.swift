@@ -41,11 +41,10 @@ class LoadingScene : CCScene {
     // MARK: - Private Methods
     func createSceneObjects() {
         // Label loading
-        let loadingLabel:CCLabelTTF = CCLabelTTF(string: "Loading...", fontName: "Verdana-Bold", fontSize: 56.0)
-        loadingLabel.fontColor = CCColor.blackColor()
-        loadingLabel.position = CGPointMake(screenSize.width / 2.0, screenSize.height / 2.0)
-        loadingLabel.anchorPoint = CGPointMake(0.5, 0.5)
-        self.addChild(loadingLabel, z: ObjectsLayers.Background.rawValue)
+        let background:CCSprite = CCSprite(imageNamed: "bgLoading.png")
+        background.position = CGPointMake(screenSize.width/2, screenSize.height/2)
+        background.anchorPoint = CGPointMake(0.5, 0.5)
+        self.addChild(background)
         
         // Chama os steps de inicializacao
         DelayHelper.sharedInstance.callFunc("callGameHome", onTarget: self, withDelay: 1.0)

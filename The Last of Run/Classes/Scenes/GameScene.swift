@@ -68,6 +68,8 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     func createSceneObjects(){
         
         // Define o mundo
+        //debugdraw para ver area de colisao
+        //self.physicsWorld.debugDraw = true
         self.physicsWorld.collisionDelegate = self
         self.physicsWorld.gravity = CGPointZero
         self.addChild(self.physicsWorld, z:ObjectsLayers.Background.rawValue)
@@ -138,10 +140,10 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.player.removeFromParentAndCleanup(true)
         
         // Exibe o texto game over
-        let label:CCLabelTTF = CCLabelTTF(string: "GameOver", fontName: "Verdana-Bold", fontSize: 42.0)
-        label.position = CGPointMake(screenSize.width/2, screenSize.height/2)
-        label.anchorPoint = CGPointMake(0.5, 0.5)
-        self.addChild(label, z:ObjectsLayers.HUD.rawValue)
+        let gameover:CCSprite = CCSprite(imageNamed: "gameover.png")
+        gameover.position = CGPointMake(screenSize.width/2, screenSize.height/2)
+        gameover.anchorPoint = CGPointMake(0.5, 0.5)
+        self.addChild(gameover, z:ObjectsLayers.HUD.rawValue)
     }
     
 	// MARK: - Public Methods
@@ -173,8 +175,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     
     // MARK: - CCPhysicsCollisionDelegate
     // ======= Validacao para colisoes entre o carro e os zumbis
-    func CCPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, PlayerCar player:PlayerCar!,
-        Zumbi aZombie:Zumbi!) -> Bool {
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, PlayerCar player:PlayerCar!, Zumbi aZombie:Zumbi!) -> Bool {
         player.shield -= 10
         if (player.shield <= 0) {
             player.shield = 0

@@ -690,6 +690,7 @@
 				AC50413C1AC0E26300BE2A41 /* HomeScene.swift */,
 				AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */,
 				1255543219C09CD200EC663C /* GameScene.swift */,
+				AC5A80431AC0D95B001220C3 /* SettingsScene.swift */,
 			);
 			name = Scenes;
 			path = Classes/Scenes;
@@ -1642,6 +1643,7 @@
 				1293CE2F19C08A26006A0E25 /* ALBuffer.m in Sources */,
 				9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */,
 				1293CE3519C08A26006A0E25 /* ALChannelSource.m in Sources */,
+				AC5A80441AC0D95B001220C3 /* SettingsScene.swift in Sources */,
 				1293CE5819C08A26006A0E25 /* IOSVersion.m in Sources */,
 				1293CE3E19C08A26006A0E25 /* ALListener.m in Sources */,
 				1293CDDE19C08A26006A0E25 /* CCGLView.m in Sources */,

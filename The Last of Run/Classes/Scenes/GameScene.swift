@@ -102,7 +102,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.addChild(backButton, z:ObjectsLayers.HUD.rawValue)
         
         // Configura o heroi na tela
-        self.player.position = CGPointMake(screenSize.width/2.0, 60.0)
+        self.player.position = CGPointMake(screenSize.width/2.0, 80.0)
         self.physicsWorld.addChild(self.player, z:ObjectsLayers.Player.rawValue)
     }
     
@@ -164,10 +164,10 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
             let centro:CGFloat = self.screenSize.width / 2.0
             
             if ( centro > locationInView.x) {
-                self.player.position = CGPointMake(self.player.position.x - 20.0, self.player.position.y)
-                self.player.changeToJumping()
+                //self.player.position = CGPointMake(self.player.position.x - 40.0, self.player.position.y)
+                self.player.changeToLeft()
             } else {
-                self.player.position = CGPointMake(self.player.position.x + 20.0, self.player.position.y)
+                self.player.changeToRight()
             }
             
 

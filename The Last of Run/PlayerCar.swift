@@ -11,7 +11,7 @@ import Foundation
 class PlayerCar : CCSprite {
     
     // MARK: - Public Objects
-    var shield:CGFloat = 100.0
+    var carStatus:CGFloat = 100.0
     var gasoline:CGFloat = 100.0
     var isLeft:Bool = false
     var isRight:Bool = false
@@ -49,7 +49,6 @@ class PlayerCar : CCSprite {
     override init(imageNamed imageName: String!) {
         super.init(imageNamed: imageName)
         
-        // Cria acao da animacao do alien saltando e parando no ultimo frame
         self.turnLeft = self.createActionLeft()
         self.turnRight = self.createActionRight()
         
@@ -61,7 +60,7 @@ class PlayerCar : CCSprite {
         self.physicsBody.density = 100.0
         self.physicsBody.collisionType = "PlayerCar"
         self.physicsBody.collisionCategories = ["PlayerCar"]
-        self.physicsBody.collisionMask = ["Zumbi"]
+        self.physicsBody.collisionMask = ["Zumbi", "Gasolina", "Cerca"]
     }
     
     override func onEnter() {
@@ -71,7 +70,7 @@ class PlayerCar : CCSprite {
     
     // MARK: - Private Methods
     func createActionLeft() -> CCActionAnimate {
-        let aName:String = "Carrinho"
+        let aName:String = "playercar"
         let qtdFrames:Int = 5
         // Carrega os frames da animacao dentro do arquivo passado dada a quantidade de frames
         var animFrames:Array<CCSpriteFrame> = Array()
@@ -93,7 +92,7 @@ class PlayerCar : CCSprite {
         return animationAction
     }
     func createActionRight() -> CCActionAnimate {
-        let aName:String = "Carrinho"
+        let aName:String = "playercar"
         let qtdFrames:Int = 10
         // Carrega os frames da animacao dentro do arquivo passado dada a quantidade de frames
         var animFrames:Array<CCSpriteFrame> = Array()

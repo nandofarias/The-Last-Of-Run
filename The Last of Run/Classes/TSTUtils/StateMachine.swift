@@ -68,7 +68,7 @@ class StateMachine {
 
 		// Controle para tocar a musica apenas na GameScene
 		SoundPlayHelper.sharedInstance.stopAllSounds()
-		if (currentScene.isKindOfClass(HomeScene) && newScene.isKindOfClass(GameScene)) {
+		if (currentScene.isKindOfClass(IntroScene) && newScene.isKindOfClass(GameScene)) {
 			SoundPlayHelper.sharedInstance.playMusicWithControl(GameMusicAndSoundFx.MusicInGame, withLoop:true)
 		}
 

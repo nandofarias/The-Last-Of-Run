@@ -16,10 +16,12 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     private let screenSize:CGSize = CCDirector.sharedDirector().viewSize()
     private var canTap:Bool = true
     private var score:Int = 0
-    private var scoreLabel:CCLabelTTF = CCLabelTTF(string:"Kills: 0", fontName:"Verdana", fontSize:32.0)
-    var shieldLabel:CCLabelTTF = CCLabelTTF(string: "Escudo: 100.0%", fontName: "Verdana-Bold", fontSize: 18.0)
+    private var velLevel:CGFloat = -300.0
+    private var gasLabel:CCLabelTTF = CCLabelTTF(string:"Gasolina: 100%", fontName:"Verdana-Bold", fontSize:18.0)
+    
+    var carStateLabel:CCLabelTTF = CCLabelTTF(string: "Carro: 100.0%", fontName: "Verdana-Bold", fontSize: 18.0)
     var physicsWorld:CCPhysicsNode = CCPhysicsNode()
-    var player:PlayerCar = PlayerCar(imageNamed:"Carrinho1.png")
+    var player:PlayerCar = PlayerCar(imageNamed:"playercar1.png")
     var canPlay:Bool = true
     var isTouching:Bool = false
     var parallaxNode:CCParallaxNode = CCParallaxNode()
@@ -41,8 +43,26 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
 		// Chamado apos o init quando entra no director
 		super.onEnter()
         
+        // Estado do carro do player
+        self.carStateLabel.fontColor = CCColor.whiteColor()
+        self.carStateLabel.position = CGPointMake(0.0, screenSize.height)
+        self.carStateLabel.anchorPoint = CGPointMake(0.0, 1.0)
+        self.addChild(self.carStateLabel, z: ObjectsLayers.HUD.rawValue)
+        
+        // Gasolina
+        self.gasLabel.fontColor = CCColor.whiteColor()
+        self.gasLabel.position = CGPointMake(0.0, screenSize.height - 20.0)
+        self.gasLabel.anchorPoint = CGPointMake(0.0, 1.0)
+        self.addChild(self.gasLabel, z: ObjectsLayers.HUD.rawValue)
+        
         // Registra a criacao de zumbis
         DelayHelper.sharedInstance.callFunc("generateZombie", onTarget: self, withDelay: 0.1)
+        
+        // Registra o indicador da gasolina
+        DelayHelper.sharedInstance.callFunc("outOfGasTick", onTarget: self, withDelay: 1.0)
+        
+        // Registra a criacao da gasolina
+        DelayHelper.sharedInstance.callFunc("generateGas", onTarget: self, withDelay: 20.0)
 
 	}
 
@@ -50,8 +70,9 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
 	override func update(delta: CCTime) {
         
         // ==================== CONTROLE DO PARALLAX
+        
         // Parallax infinito com apenas uma imagem
-        var backgroundScrollVel:CGPoint = CGPointMake(0, -500)
+        var backgroundScrollVel:CGPoint = CGPointMake(0, velLevel--)
         
         // Soma os pontos (posicao atual + (velocidade * delta))
         let pt1:CGFloat = backgroundScrollVel.y * CGFloat(delta)
@@ -74,12 +95,21 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.physicsWorld.gravity = CGPointZero
         self.addChild(self.physicsWorld, z:ObjectsLayers.Background.rawValue)
         
-        // Escudo do player
-        self.shieldLabel.fontColor = CCColor.whiteColor()
-        self.shieldLabel.position = CGPointMake(0.0, screenSize.height)
-        self.shieldLabel.anchorPoint = CGPointMake(0.0, 1.0)
-        self.addChild(self.shieldLabel, z: ObjectsLayers.HUD.rawValue)
+        //criando cercas
+        var cerca1:CCNode = CCNode()
+        cerca1.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, 5, 568), cornerRadius: 0.0)
+        cerca1.physicsBody.type = CCPhysicsBodyType.Static
+        cerca1.physicsBody.collisionCategories = ["Cerca"]
+        cerca1.physicsBody.collisionMask = ["PlayerCar"]
+        self.physicsWorld.addChild(cerca1)
         
+        var cerca2:CCNode = CCNode()
+        cerca2.physicsBody = CCPhysicsBody(rect: CGRectMake(self.screenSize.width, 0, 5, 568), cornerRadius: 0.0)
+        cerca2.physicsBody.type = CCPhysicsBodyType.Static
+        cerca2.physicsBody.collisionCategories = ["Cerca"]
+        cerca2.physicsBody.collisionMask = ["PlayerCar"]
+        self.physicsWorld.addChild(cerca2)
+
         
         // Configura o parallax infinito
         self.bgroad1.position = CGPointMake(0.0, 0.0)
@@ -87,8 +117,8 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.bgroad2.position = CGPointMake(0.0, 0.0)
         self.bgroad2.anchorPoint = CGPointMake(0.0, 0.0)
         self.parallaxNode.position = CGPointMake(0.0, 0.0)
-        self.parallaxNode.addChild(self.bgroad1, z: 1, parallaxRatio:CGPointMake(0.0, 0.5), positionOffset:CGPointMake(0.0, 0.0))
-        self.parallaxNode.addChild(self.bgroad2, z: 1, parallaxRatio:CGPointMake(0.0, 0.5), positionOffset:CGPointMake(0.0, self.bgroad1.contentSize.height))
+        self.parallaxNode.addChild(self.bgroad1, z: 1, parallaxRatio:CGPointMake(0.0, 0.7), positionOffset:CGPointMake(0.0, 0.0))
+        self.parallaxNode.addChild(self.bgroad2, z: 1, parallaxRatio:CGPointMake(0.0, 0.7), positionOffset:CGPointMake(0.0, self.bgroad1.contentSize.height))
         self.physicsWorld.addChild(self.parallaxNode, z: ObjectsLayers.Background.rawValue)
         
         // Back button
@@ -106,13 +136,27 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.physicsWorld.addChild(self.player, z:ObjectsLayers.Player.rawValue)
     }
     
+    
+    func outOfGasTick() {
+        if (self.canPlay) {
+            player.gasoline--
+            if (player.gasoline <= 0) {
+                self.doGameOver()
+            } else {
+                self.gasLabel.string = "Gasolina: \(player.gasoline)%"
+                // Chama de 1 em 1 seg
+                DelayHelper.sharedInstance.callFunc("outOfGasTick", onTarget: self, withDelay: 1.0)
+            }
+        }
+    }
+    
     func generateZombie() {
         if (self.canPlay) {
             // Quantidade de inseto gerado por vez...
             //let bugAmout:Int = Int(arc4random_uniform(5) + 1)
             
             for (var i = 0; i < 1; i++) {
-                let positionX:CGFloat = CGFloat(arc4random_uniform(824) + 100)
+                let positionX:CGFloat = CGFloat(arc4random_uniform(300))
                 var zombie:Zumbi = Zumbi(event: "updateScore", target: self)
                 zombie.position = CGPointMake(positionX, self.screenSize.height + (CGFloat(arc4random_uniform(100) + 50)))
                 zombie.name = "z"
@@ -121,8 +165,20 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
             }
             
             // Apos geracao, registra nova geracao apos um tempo
-            DelayHelper.sharedInstance.callFunc("generateZombie", onTarget: self, withDelay: 0.8)
+            DelayHelper.sharedInstance.callFunc("generateZombie", onTarget: self, withDelay: 2.0)
         }
+    }
+    
+    func generateGas() {
+        let positionX:CGFloat = CGFloat(arc4random_uniform(300))
+        var gas:Gasolina = Gasolina(imageNamed: "gas.png")
+        gas.position = CGPointMake(positionX, self.screenSize.height + 50)
+        gas.name = "gas"
+        self.physicsWorld.addChild(gas, z:ObjectsLayers.Foes.rawValue)
+        gas.moveMe()
+        
+        // Apos geracao, registra nova geracao apos um tempo
+        DelayHelper.sharedInstance.callFunc("generateGas", onTarget: self, withDelay: 20.0)
     }
     
     func createParticleAtPosition(aPosition:CGPoint) {
@@ -139,6 +195,20 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.createParticleAtPosition(self.player.position)
         self.player.removeFromParentAndCleanup(true)
         
+        // Registra o novo best score caso haja
+        let oldScore:Int = NSUserDefaults.standardUserDefaults().integerForKey("KeyBestScore")
+        if (self.score > oldScore) {
+            NSUserDefaults.standardUserDefaults().setInteger(self.score, forKey: "KeyBestScore")
+        }
+        
+        // Percorre e cancela toda movimentacao dos insetos
+        for node:AnyObject in self.children as Array<AnyObject> {
+            if (node.isKindOfClass(Zumbi)) {
+                let zumbi:Zumbi = node as Zumbi
+                zumbi.stopAllSpriteActions()
+            }
+        }
+        
         // Exibe o texto game over
         let gameover:CCSprite = CCSprite(imageNamed: "gameover.png")
         gameover.position = CGPointMake(screenSize.width/2, screenSize.height/2)
@@ -148,8 +218,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     
 	// MARK: - Public Methods
     func updateScore() {
-        self.score+=1
-        self.scoreLabel.string = "Kills: \(self.score)"
+        println("tESTE")
     }
     
 
@@ -177,29 +246,54 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     // MARK: - CCPhysicsCollisionDelegate
     // ======= Validacao para colisoes entre o carro e os zumbis
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, PlayerCar player:PlayerCar!, Zumbi aZombie:Zumbi!) -> Bool {
-        player.shield -= 10
-        if (player.shield <= 0) {
-            player.shield = 0
+        player.carStatus -= 10
+        if (player.carStatus <= 0) {
+            player.carStatus = 0
             self.doGameOver()
         }
         
-        // Explode e remove a nave
-        //SoundPlayHelper.sharedInstance.playSoundWithControl(GameMusicAndSoundFx.SoundFXButtonShipBoom)
+        //particula da batida
         self.createParticleAtPosition(aZombie.position)
-        aZombie.removeFromParentAndCleanup(true)
+        
+        // Atropela e remove o zumbi
+        aZombie.runOver()
         
         // Configura o display da vida do player
-        self.shieldLabel.string = "Escudo: \(player.shield)%"
+        self.carStateLabel.string = "Carro: \(player.carStatus)%"
         
         return true
     }
 
+    // ======= Validacao para colisoes entre o carro e a gasolina
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, PlayerCar player:PlayerCar!, Gasolina aGas:Gasolina!) -> Bool {
+        
+        //Pode aumentar a gasolina de 10 a 30
+        player.gasoline += CGFloat(arc4random_uniform(20) + 10)
+        
+        if (player.gasoline > 100.0){
+            player.gasoline = 100.0
+        }
+
+        //particula do PowerUp
+        self.createParticleAtPosition(aGas.position)
+        
+        //Colocar som do PowerUp
+        
+        // Remove a gasolina
+        aGas.removeFromParentAndCleanup(true)
+        
+        // Configura o display da vida do player
+        self.gasLabel.string = "Gasolina: \(player.gasoline)%"
+        
+        return true
+    }
     
 	
 	// MARK: - Death Cycle
 	override func onExit() {
 		// Chamado quando sai do director
 		super.onExit()
+        CCTextureCache.sharedTextureCache().removeAllTextures()
 	}
     
 

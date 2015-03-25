@@ -10,7 +10,6 @@
 		1226621019F00CD6001FE3B9 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226620F19F00CD6001FE3B9 /* fire.png */; };
 		1255542319C08DC000EC663C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1255542219C08DC000EC663C /* Main.swift */; };
 		1255543019C09C9E00EC663C /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1255542F19C09C9E00EC663C /* StateMachine.swift */; };
-		1255543519C09CD200EC663C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1255543219C09CD200EC663C /* GameScene.swift */; };
 		1255543919C0A00E00EC663C /* SoundPlayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1255543819C0A00E00EC663C /* SoundPlayHelper.swift */; };
 		1255543B19C0C3B100EC663C /* DelayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1255543A19C0C3B100EC663C /* DelayHelper.swift */; };
 		1255544419C0D72000EC663C /* MusicInGame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1255544219C0D72000EC663C /* MusicInGame.mp3 */; };
@@ -198,12 +197,18 @@
 		12F88AE919DDA1D20001531E /* CCEffectSaturation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88AD719DDA1D20001531E /* CCEffectSaturation.m */; };
 		12F88AEA19DDA1D20001531E /* CCEffectStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88ADA19DDA1D20001531E /* CCEffectStack.m */; };
 		12F88AEB19DDA1D20001531E /* CCEffectUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F88ADD19DDA1D20001531E /* CCEffectUtils.m */; };
-		38327D6A1ABFA63C007C4EDE /* PlayerCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38327D691ABFA63C007C4EDE /* PlayerCar.swift */; };
 		38327D701ABFBBBD007C4EDE /* ShipBlow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38327D6E1ABFBBBD007C4EDE /* ShipBlow.plist */; };
 		38327D711ABFBBBD007C4EDE /* ShipBlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 38327D6F1ABFBBBD007C4EDE /* ShipBlow.png */; };
-		38D156121ABF0EED0088ACDF /* Zumbi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D156111ABF0EED0088ACDF /* Zumbi.swift */; };
-		38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566C1ABF44E40088ACDF /* zombie.plist */; };
-		38D1566F1ABF44E40088ACDF /* zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 38D1566D1ABF44E40088ACDF /* zombie.png */; };
+		38979FF11AC29186002BC8AF /* Gasolina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38979FEF1AC29186002BC8AF /* Gasolina.swift */; };
+		38979FF21AC29186002BC8AF /* PlayerCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38979FF01AC29186002BC8AF /* PlayerCar.swift */; };
+		38979FF41AC2919D002BC8AF /* Zumbi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38979FF31AC2919D002BC8AF /* Zumbi.swift */; };
+		38979FF61AC291F4002BC8AF /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38979FF51AC291F4002BC8AF /* LoadingScene.swift */; };
+		38979FF81AC29202002BC8AF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38979FF71AC29202002BC8AF /* GameScene.swift */; };
+		38979FFA1AC2922E002BC8AF /* gas.png in Resources */ = {isa = PBXBuildFile; fileRef = 38979FF91AC2922E002BC8AF /* gas.png */; };
+		38979FFD1AC29265002BC8AF /* zombie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38979FFB1AC29265002BC8AF /* zombie.plist */; };
+		38979FFE1AC29265002BC8AF /* zombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 38979FFC1AC29265002BC8AF /* zombie.png */; };
+		3897A0011AC29287002BC8AF /* playercar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38979FFF1AC29287002BC8AF /* playercar.plist */; };
+		3897A0021AC29287002BC8AF /* playercar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3897A0001AC29287002BC8AF /* playercar.png */; };
 		9AD74BB81ABA5DDC00F50FF7 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */; };
 		AC11325B1AC0E60800985D8D /* bgSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = AC11325A1AC0E60800985D8D /* bgSettings.png */; };
 		AC5041371AC0E1D000BE2A41 /* bgLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041321AC0E1D000BE2A41 /* bgLoading.png */; };
@@ -211,18 +216,14 @@
 		AC5041391AC0E1D000BE2A41 /* gameover.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041341AC0E1D000BE2A41 /* gameover.png */; };
 		AC50413B1AC0E1D000BE2A41 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041361AC0E1D000BE2A41 /* start.png */; };
 		AC50413E1AC0E26300BE2A41 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50413C1AC0E26300BE2A41 /* HomeScene.swift */; };
-		AC50413F1AC0E26300BE2A41 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */; };
 		AC5041431AC0E6DD00BE2A41 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041421AC0E6DD00BE2A41 /* back.png */; };
 		AC5041451AC0E87200BE2A41 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5041441AC0E87200BE2A41 /* SettingsScene.swift */; };
 		AC5041471AC0E9B300BE2A41 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041461AC0E9B300BE2A41 /* settings.png */; };
-		AC50414B1AC0EA5C00BE2A41 /* Carrinho.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5041491AC0EA5C00BE2A41 /* Carrinho.plist */; };
-		AC50414C1AC0EA5C00BE2A41 /* Carrinho.png in Resources */ = {isa = PBXBuildFile; fileRef = AC50414A1AC0EA5C00BE2A41 /* Carrinho.png */; };
 		AC5041501AC0EA9900BE2A41 /* Boneco.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC50414E1AC0EA9900BE2A41 /* Boneco.plist */; };
 		AC5041511AC0EA9900BE2A41 /* Boneco.png in Resources */ = {isa = PBXBuildFile; fileRef = AC50414F1AC0EA9900BE2A41 /* Boneco.png */; };
 		AC5041551AC0EC9F00BE2A41 /* car02.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041521AC0EC9F00BE2A41 /* car02.png */; };
 		AC5041561AC0EC9F00BE2A41 /* car01.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041531AC0EC9F00BE2A41 /* car01.png */; };
 		AC5041571AC0EC9F00BE2A41 /* car03.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041541AC0EC9F00BE2A41 /* car03.png */; };
-		AC50415B1AC0F01900BE2A41 /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = AC50415A1AC0F01900BE2A41 /* road.png */; };
 		B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B929AA101ABC97B1008A18DB /* Images.xcassets */; };
 		B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */; };
 		E267F70A1AC2483C00EB57C8 /* ScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267F7091AC2483C00EB57C8 /* ScoreScene.swift */; };
@@ -239,7 +240,6 @@
 		1226620F19F00CD6001FE3B9 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
 		1255542219C08DC000EC663C /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Main.swift; path = "Supporting Files/Main.swift"; sourceTree = "<group>"; };
 		1255542F19C09C9E00EC663C /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
-		1255543219C09CD200EC663C /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		1255543819C0A00E00EC663C /* SoundPlayHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayHelper.swift; sourceTree = "<group>"; };
 		1255543A19C0C3B100EC663C /* DelayHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayHelper.swift; sourceTree = "<group>"; };
 		1255544219C0D72000EC663C /* MusicInGame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MusicInGame.mp3; sourceTree = "<group>"; };
@@ -634,12 +634,19 @@
 		12F88ADB19DDA1D20001531E /* CCEffectStackProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEffectStackProtocol.h; path = Libraries/cocos2d/CCEffectStackProtocol.h; sourceTree = "<group>"; };
 		12F88ADC19DDA1D20001531E /* CCEffectUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEffectUtils.h; path = Libraries/cocos2d/CCEffectUtils.h; sourceTree = "<group>"; };
 		12F88ADD19DDA1D20001531E /* CCEffectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCEffectUtils.m; path = Libraries/cocos2d/CCEffectUtils.m; sourceTree = "<group>"; };
-		38327D691ABFA63C007C4EDE /* PlayerCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerCar.swift; path = Classes/Objects/PlayerCar.swift; sourceTree = "<group>"; };
 		38327D6E1ABFBBBD007C4EDE /* ShipBlow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShipBlow.plist; sourceTree = "<group>"; };
 		38327D6F1ABFBBBD007C4EDE /* ShipBlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShipBlow.png; sourceTree = "<group>"; };
-		38D156111ABF0EED0088ACDF /* Zumbi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Zumbi.swift; path = Classes/Objects/Zumbi.swift; sourceTree = "<group>"; };
-		38D1566C1ABF44E40088ACDF /* zombie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie.plist; sourceTree = "<group>"; };
-		38D1566D1ABF44E40088ACDF /* zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie.png; sourceTree = "<group>"; };
+		38979FED1AC28FD5002BC8AF /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		38979FEF1AC29186002BC8AF /* Gasolina.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gasolina.swift; sourceTree = "<group>"; };
+		38979FF01AC29186002BC8AF /* PlayerCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCar.swift; sourceTree = "<group>"; };
+		38979FF31AC2919D002BC8AF /* Zumbi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zumbi.swift; sourceTree = "<group>"; };
+		38979FF51AC291F4002BC8AF /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
+		38979FF71AC29202002BC8AF /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		38979FF91AC2922E002BC8AF /* gas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gas.png; sourceTree = "<group>"; };
+		38979FFB1AC29265002BC8AF /* zombie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie.plist; sourceTree = "<group>"; };
+		38979FFC1AC29265002BC8AF /* zombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie.png; sourceTree = "<group>"; };
+		38979FFF1AC29287002BC8AF /* playercar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playercar.plist; sourceTree = "<group>"; };
+		3897A0001AC29287002BC8AF /* playercar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playercar.png; sourceTree = "<group>"; };
 		9AD74BB71ABA5DDC00F50FF7 /* Constantes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
 		AC11325A1AC0E60800985D8D /* bgSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgSettings.png; sourceTree = "<group>"; };
 		AC5041321AC0E1D000BE2A41 /* bgLoading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLoading.png; sourceTree = "<group>"; };
@@ -647,18 +654,14 @@
 		AC5041341AC0E1D000BE2A41 /* gameover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameover.png; sourceTree = "<group>"; };
 		AC5041361AC0E1D000BE2A41 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		AC50413C1AC0E26300BE2A41 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
-		AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
 		AC5041421AC0E6DD00BE2A41 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		AC5041441AC0E87200BE2A41 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		AC5041461AC0E9B300BE2A41 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
-		AC5041491AC0EA5C00BE2A41 /* Carrinho.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Carrinho.plist; sourceTree = "<group>"; };
-		AC50414A1AC0EA5C00BE2A41 /* Carrinho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Carrinho.png; sourceTree = "<group>"; };
 		AC50414E1AC0EA9900BE2A41 /* Boneco.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Boneco.plist; sourceTree = "<group>"; };
 		AC50414F1AC0EA9900BE2A41 /* Boneco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Boneco.png; sourceTree = "<group>"; };
 		AC5041521AC0EC9F00BE2A41 /* car02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car02.png; sourceTree = "<group>"; };
 		AC5041531AC0EC9F00BE2A41 /* car01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car01.png; sourceTree = "<group>"; };
 		AC5041541AC0EC9F00BE2A41 /* car03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car03.png; sourceTree = "<group>"; };
-		AC50415A1AC0F01900BE2A41 /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		B929AA101ABC97B1008A18DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieTheme.mp3; sourceTree = "<group>"; };
 		E267F7091AC2483C00EB57C8 /* ScoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreScene.swift; sourceTree = "<group>"; };
@@ -723,9 +726,9 @@
 			children = (
 				E2C3FB8F1AC25F09006A2A35 /* IntroScene.swift */,
 				AC50413C1AC0E26300BE2A41 /* HomeScene.swift */,
+				38979FF71AC29202002BC8AF /* GameScene.swift */,
+				38979FF51AC291F4002BC8AF /* LoadingScene.swift */,
 				E267F7091AC2483C00EB57C8 /* ScoreScene.swift */,
-				AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */,
-				1255543219C09CD200EC663C /* GameScene.swift */,
 				AC5041441AC0E87200BE2A41 /* SettingsScene.swift */,
 			);
 			name = Scenes;
@@ -790,18 +793,19 @@
 				E267F70B1AC2488C00EB57C8 /* bgScore.png */,
 				E267F70F1AC24C8800EB57C8 /* score.png */,
 				AC11325A1AC0E60800985D8D /* bgSettings.png */,
-				38D1566C1ABF44E40088ACDF /* zombie.plist */,
+				38979FF91AC2922E002BC8AF /* gas.png */,
 				AC5041321AC0E1D000BE2A41 /* bgLoading.png */,
 				AC5041331AC0E1D000BE2A41 /* bgTheLastOfRun.png */,
+				38979FFB1AC29265002BC8AF /* zombie.plist */,
+				38979FFC1AC29265002BC8AF /* zombie.png */,
 				AC5041421AC0E6DD00BE2A41 /* back.png */,
 				AC5041341AC0E1D000BE2A41 /* gameover.png */,
 				AC5041521AC0EC9F00BE2A41 /* car02.png */,
-				AC50415A1AC0F01900BE2A41 /* road.png */,
 				AC5041531AC0EC9F00BE2A41 /* car01.png */,
 				AC5041541AC0EC9F00BE2A41 /* car03.png */,
 				AC5041461AC0E9B300BE2A41 /* settings.png */,
+				38979FED1AC28FD5002BC8AF /* road.png */,
 				AC5041361AC0E1D000BE2A41 /* start.png */,
-				38D1566D1ABF44E40088ACDF /* zombie.png */,
 				E2C3FB911AC2644F006A2A35 /* intro01.png */,
 				E2C3FB921AC2644F006A2A35 /* intro02.png */,
 				E2C3FB931AC2644F006A2A35 /* intro03.png */,
@@ -1572,8 +1576,9 @@
 		38D156101ABF0E9F0088ACDF /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				38D156111ABF0EED0088ACDF /* Zumbi.swift */,
-				38327D691ABFA63C007C4EDE /* PlayerCar.swift */,
+				38979FEF1AC29186002BC8AF /* Gasolina.swift */,
+				38979FF31AC2919D002BC8AF /* Zumbi.swift */,
+				38979FF01AC29186002BC8AF /* PlayerCar.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1581,8 +1586,8 @@
 		AC5041481AC0EA3700BE2A41 /* Carro */ = {
 			isa = PBXGroup;
 			children = (
-				AC5041491AC0EA5C00BE2A41 /* Carrinho.plist */,
-				AC50414A1AC0EA5C00BE2A41 /* Carrinho.png */,
+				38979FFF1AC29287002BC8AF /* playercar.plist */,
+				3897A0001AC29287002BC8AF /* playercar.png */,
 			);
 			name = Carro;
 			sourceTree = "<group>";
@@ -1673,9 +1678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC5041511AC0EA9900BE2A41 /* Boneco.png in Resources */,
-				38D1566E1ABF44E40088ACDF /* zombie.plist in Resources */,
 				AC50413B1AC0E1D000BE2A41 /* start.png in Resources */,
-				AC50415B1AC0F01900BE2A41 /* road.png in Resources */,
 				AC5041381AC0E1D000BE2A41 /* bgTheLastOfRun.png in Resources */,
 				AC5041551AC0EC9F00BE2A41 /* car02.png in Resources */,
 				1255544519C0D72000EC663C /* SoundFXButtonTap.mp3 in Resources */,
@@ -1683,17 +1686,18 @@
 				E2C3FB951AC2644F006A2A35 /* intro02.png in Resources */,
 				1226621019F00CD6001FE3B9 /* fire.png in Resources */,
 				AC5041501AC0EA9900BE2A41 /* Boneco.plist in Resources */,
+				38979FFE1AC29265002BC8AF /* zombie.png in Resources */,
 				38327D711ABFBBBD007C4EDE /* ShipBlow.png in Resources */,
 				E2C3FB941AC2644F006A2A35 /* intro01.png in Resources */,
 				E2C3FB961AC2644F006A2A35 /* intro03.png in Resources */,
 				E2C3FB8B1AC25EE4006A2A35 /* intro04.png in Resources */,
 				AC5041371AC0E1D000BE2A41 /* bgLoading.png in Resources */,
+				3897A0011AC29287002BC8AF /* playercar.plist in Resources */,
 				38327D701ABFBBBD007C4EDE /* ShipBlow.plist in Resources */,
 				AC11325B1AC0E60800985D8D /* bgSettings.png in Resources */,
+				38979FFA1AC2922E002BC8AF /* gas.png in Resources */,
 				1255545119C0D90600EC663C /* Default.png in Resources */,
 				1255545219C0D90600EC663C /* Default@2x.png in Resources */,
-				AC50414B1AC0EA5C00BE2A41 /* Carrinho.plist in Resources */,
-				38D1566F1ABF44E40088ACDF /* zombie.png in Resources */,
 				1255544F19C0D90600EC663C /* Default-568h@2x.png in Resources */,
 				B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */,
 				AC5041431AC0E6DD00BE2A41 /* back.png in Resources */,
@@ -1704,8 +1708,9 @@
 				1255544419C0D72000EC663C /* MusicInGame.mp3 in Resources */,
 				AC5041391AC0E1D000BE2A41 /* gameover.png in Resources */,
 				AC5041571AC0EC9F00BE2A41 /* car03.png in Resources */,
+				38979FFD1AC29265002BC8AF /* zombie.plist in Resources */,
 				AC5041561AC0EC9F00BE2A41 /* car01.png in Resources */,
-				AC50414C1AC0EA5C00BE2A41 /* Carrinho.png in Resources */,
+				3897A0021AC29287002BC8AF /* playercar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1772,6 +1777,7 @@
 				1293CE4919C08A26006A0E25 /* ALWrapper.m in Sources */,
 				1293CE9319C08A26006A0E25 /* CCBsequence.m in Sources */,
 				E2C3FB901AC25F09006A2A35 /* IntroScene.swift in Sources */,
+				38979FF11AC29186002BC8AF /* Gasolina.swift in Sources */,
 				1293CE7E19C08A26006A0E25 /* CCTableView.m in Sources */,
 				1293CD4D19C08A25006A0E25 /* CCLayout.m in Sources */,
 				1293CD7D19C08A25006A0E25 /* CCPhysicsShape.m in Sources */,
@@ -1787,15 +1793,14 @@
 				12F88AEA19DDA1D20001531E /* CCEffectStack.m in Sources */,
 				1293CD8D19C08A25006A0E25 /* CCResponderManager.m in Sources */,
 				E267F70A1AC2483C00EB57C8 /* ScoreScene.swift in Sources */,
-				38327D6A1ABFA63C007C4EDE /* PlayerCar.swift in Sources */,
 				1293CDBF19C08A26006A0E25 /* CCTransition.m in Sources */,
-				38D156121ABF0EED0088ACDF /* Zumbi.swift in Sources */,
 				12F88AE319DDA1D20001531E /* CCEffectGlass.m in Sources */,
 				1293CE1619C08A26006A0E25 /* OALActionManager.m in Sources */,
 				1293CD7A19C08A25006A0E25 /* CCPhysicsNode.m in Sources */,
 				12F88AEB19DDA1D20001531E /* CCEffectUtils.m in Sources */,
 				12F88AE719DDA1D20001531E /* CCEffectRefraction.m in Sources */,
 				1293CE1C19C08A26006A0E25 /* OALUtilityActions.m in Sources */,
+				38979FF41AC2919D002BC8AF /* Zumbi.swift in Sources */,
 				1293CD5419C08A25006A0E25 /* CCMotionStreak.m in Sources */,
 				1293CE5E19C08A26006A0E25 /* NSMutableArray+WeakReferences.m in Sources */,
 				1293CE4C19C08A26006A0E25 /* OpenALManager.m in Sources */,
@@ -1814,9 +1819,7 @@
 				1293CE4519C08A26006A0E25 /* ALSource.m in Sources */,
 				1293CE6819C08A26006A0E25 /* OALTools.m in Sources */,
 				1293CDC319C08A26006A0E25 /* cocos2d.m in Sources */,
-				1255543519C09CD200EC663C /* GameScene.swift in Sources */,
 				1293CD9B19C08A25006A0E25 /* CCSprite9Slice.m in Sources */,
-				AC50413F1AC0E26300BE2A41 /* LoadingScene.swift in Sources */,
 				1293CDDB19C08A26006A0E25 /* CCDirectorMac.m in Sources */,
 				1293CE7119C08A26006A0E25 /* CCControl.m in Sources */,
 				1293CD6B19C08A25006A0E25 /* CCParticleSystem.m in Sources */,
@@ -1827,6 +1830,8 @@
 				1293CDA419C08A25006A0E25 /* CCSpriteFrameCache.m in Sources */,
 				1293CD2F19C08A25006A0E25 /* CCClippingNode.m in Sources */,
 				1293CE5A19C08A26006A0E25 /* mach_timing.c in Sources */,
+				38979FF21AC29186002BC8AF /* PlayerCar.swift in Sources */,
+				38979FF81AC29202002BC8AF /* GameScene.swift in Sources */,
 				1293CD9419C08A25006A0E25 /* CCScheduler.m in Sources */,
 				1293CDB219C08A26006A0E25 /* CCTiledMap.m in Sources */,
 				1293CD8A19C08A25006A0E25 /* CCResponder.m in Sources */,
@@ -1847,6 +1852,7 @@
 				1293CD3719C08A25006A0E25 /* CCDirector.m in Sources */,
 				1293CD1519C08A25006A0E25 /* CCActionEase.m in Sources */,
 				1293CE4219C08A26006A0E25 /* ALSoundSourcePool.m in Sources */,
+				38979FF61AC291F4002BC8AF /* LoadingScene.swift in Sources */,
 				1293CE8D19C08A26006A0E25 /* CCBKeyframe.m in Sources */,
 				1293CD4319C08A25006A0E25 /* CCLabelBMFont.m in Sources */,
 				1293CE3219C08A26006A0E25 /* ALCaptureDevice.m in Sources */,

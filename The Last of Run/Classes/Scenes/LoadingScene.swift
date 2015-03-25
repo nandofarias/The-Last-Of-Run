@@ -29,7 +29,7 @@ class LoadingScene : CCScene {
         // Preload do plist
         CCSpriteFrameCache.sharedSpriteFrameCache().addSpriteFramesWithFile("zombie.plist")
         
-        CCSpriteFrameCache.sharedSpriteFrameCache().addSpriteFramesWithFile("Carrinho.plist")
+        CCSpriteFrameCache.sharedSpriteFrameCache().addSpriteFramesWithFile("playercar.plist")
         
         self.createSceneObjects()
 

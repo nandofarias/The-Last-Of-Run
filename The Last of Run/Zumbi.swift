@@ -17,28 +17,33 @@ class Zumbi : CCSprite {
     
     // MARK: - Private Objects
     private var spriteZumbi:CCSprite?
+    private var spriteZumbiAtropelado:CCSprite = CCSprite(imageNamed: "zumbi7.png")
     
     // MARK: - Life Cycle
     override init() {
         super.init()
         
         // Cria o sprite da barata animado
-//        self.spriteZumbi = self.gerarAnimacaoSpriteWithName("z", aQtdFrames: 11)
-//        self.spriteZumbi!.anchorPoint = CGPointMake(0.0, 0.0);
-//        self.spriteZumbi!.position = CGPointMake(0.0, 0.0);
-//        self.addChild(self.spriteZumbi, z:2)
-
-//        // Configuracoes default
-//        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.spriteZumbi!.contentSize.width, self.spriteZumbi!.contentSize.height), cornerRadius: 0.0)
-//        self.physicsBody.type = CCPhysicsBodyType.Kinematic
-//        self.physicsBody.friction = 1.0
-//        self.physicsBody.elasticity = 0.1
-//        self.physicsBody.mass = 100.0
-//        self.physicsBody.density = 100.0
-//        self.physicsBody.collisionType = "Zumbi"
-//        self.physicsBody.collisionCategories = ["Zumbi"]
-//        self.physicsBody.collisionMask = ["PlayerCar"]
+        self.spriteZumbi = self.gerarAnimacaoSpriteWithName("zumbi", aQtdFrames: 6)
+        self.spriteZumbi!.anchorPoint = CGPointMake(0.0, 0.0);
+        self.spriteZumbi!.position = CGPointMake(0.0, 0.0);
+        self.addChild(self.spriteZumbi, z:2)
         
+        self.spriteZumbiAtropelado.opacity = 0.0
+        self.spriteZumbiAtropelado.anchorPoint = CGPointMake(0.0, 0.0);
+        self.spriteZumbiAtropelado.position = CGPointMake(0.0, 0.0);
+        self.addChild(self.spriteZumbiAtropelado, z:1)
+
+        // Configuracoes default
+        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.spriteZumbi!.contentSize.width, self.spriteZumbi!.contentSize.height), cornerRadius: 0.0)
+        self.physicsBody.type = CCPhysicsBodyType.Kinematic
+        self.physicsBody.friction = 1.0
+        self.physicsBody.elasticity = 0.1
+        self.physicsBody.mass = 100.0
+        self.physicsBody.density = 100.0
+        self.physicsBody.collisionType = "Zumbi"
+        self.physicsBody.collisionCategories = ["Zumbi"]
+        self.physicsBody.collisionMask = ["PlayerCar"]
         
     }
     
@@ -64,17 +69,7 @@ class Zumbi : CCSprite {
     
     override init(imageNamed imageName: String!) {
         super.init(imageNamed: imageName)
-        
-        // Configuracoes default
-        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.contentSize.width, self.contentSize.height), cornerRadius: 0.0)
-        self.physicsBody.type = CCPhysicsBodyType.Kinematic
-        self.physicsBody.friction = 1.0
-        self.physicsBody.elasticity = 0.1
-        self.physicsBody.mass = 100.0
-        self.physicsBody.density = 100.0
-        self.physicsBody.collisionType = "Zumbi"
-        self.physicsBody.collisionCategories = ["Zumbi"]
-        self.physicsBody.collisionMask = ["PlayerCar"]
+
     }
     
     override func onEnter() {
@@ -83,7 +78,7 @@ class Zumbi : CCSprite {
     }
     
     convenience init(event:Selector, target:AnyObject) {
-        self.init(imageNamed: "z2.png")
+        self.init()
         
         self.eventSelector = event
         self.targetID = target
@@ -93,7 +88,7 @@ class Zumbi : CCSprite {
     func gerarAnimacaoSpriteWithName(aSpriteName:String, aQtdFrames:Int) -> CCSprite {
         // Carrega os frames da animacao dentro do arquivo passado dada a quantidade de frames
         var animFrames:Array<CCSpriteFrame> = Array()
-        for (var i = 0; i <= aQtdFrames; i++) {
+        for (var i = 1; i <= aQtdFrames; i++) {
             let name:String = "\(aSpriteName)\(i).png"
             animFrames.append(CCSpriteFrameCache.sharedSpriteFrameCache().spriteFrameByName(name))
         }
@@ -115,13 +110,28 @@ class Zumbi : CCSprite {
     // MARK: - Public Methods
     // MARK: - Public Methods
     internal func moveMe() {
-        let speed:CGFloat = CGFloat(arc4random_uniform(4) + 3)
+        let speed:CGFloat = CGFloat(arc4random_uniform(2) + 3)
         self.runAction(CCActionSequence.actionOne(CCActionMoveTo.actionWithDuration(CCTime(speed), position: CGPointMake(self.position.x, self.height() * -2)) as CCActionFiniteTime,
             two: CCActionCallBlock.actionWithBlock({ _ in
                 self.stopAllSpriteActions()
                 self.removeFromParentAndCleanup(true)
             }) as CCActionFiniteTime)
             as CCAction)
+    }
+    
+    internal func runOver() {
+        // Barulho da batida
+        //OALSimpleAudio.sharedInstance().playEffect("FXSquitch.mp3")
+        
+        // Apresenta o blood e oculta a barata
+        self.spriteZumbiAtropelado.opacity = 255.0
+        self.spriteZumbi?.opacity = 0.0
+    self.spriteZumbiAtropelado.runAction(CCActionSequence.actionOne(CCActionFadeOut.actionWithDuration(5) as CCActionFiniteTime, two: CCActionCallBlock.actionWithBlock({ _ in
+            self.removeFromParentAndCleanup(true)
+        }) as CCActionFiniteTime) as CCAction)
+        
+        // Mata o zumbi e executa o evento informado
+        DelayHelper.sharedInstance.callFunc(self.eventSelector!, onTarget: self.targetID!, withDelay: 0.0)
     }
     
     internal func stopAllSpriteActions() {

@@ -225,6 +225,9 @@
 		AC50415B1AC0F01900BE2A41 /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = AC50415A1AC0F01900BE2A41 /* road.png */; };
 		B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B929AA101ABC97B1008A18DB /* Images.xcassets */; };
 		B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */; };
+		E267F70A1AC2483C00EB57C8 /* ScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267F7091AC2483C00EB57C8 /* ScoreScene.swift */; };
+		E267F70D1AC2488C00EB57C8 /* bgScore.png in Resources */ = {isa = PBXBuildFile; fileRef = E267F70B1AC2488C00EB57C8 /* bgScore.png */; };
+		E267F7101AC24C8800EB57C8 /* score.png in Resources */ = {isa = PBXBuildFile; fileRef = E267F70F1AC24C8800EB57C8 /* score.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -653,6 +656,9 @@
 		AC50415A1AC0F01900BE2A41 /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		B929AA101ABC97B1008A18DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieTheme.mp3; sourceTree = "<group>"; };
+		E267F7091AC2483C00EB57C8 /* ScoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreScene.swift; sourceTree = "<group>"; };
+		E267F70B1AC2488C00EB57C8 /* bgScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgScore.png; sourceTree = "<group>"; };
+		E267F70F1AC24C8800EB57C8 /* score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = score.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -706,6 +712,7 @@
 			isa = PBXGroup;
 			children = (
 				AC50413C1AC0E26300BE2A41 /* HomeScene.swift */,
+				E267F7091AC2483C00EB57C8 /* ScoreScene.swift */,
 				AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */,
 				1255543219C09CD200EC663C /* GameScene.swift */,
 				AC5041441AC0E87200BE2A41 /* SettingsScene.swift */,
@@ -769,6 +776,8 @@
 		1293CCB219C08A25006A0E25 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E267F70B1AC2488C00EB57C8 /* bgScore.png */,
+				E267F70F1AC24C8800EB57C8 /* score.png */,
 				AC11325A1AC0E60800985D8D /* bgSettings.png */,
 				38D1566C1ABF44E40088ACDF /* zombie.plist */,
 				AC5041321AC0E1D000BE2A41 /* bgLoading.png */,
@@ -1669,6 +1678,8 @@
 				1255544F19C0D90600EC663C /* Default-568h@2x.png in Resources */,
 				B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */,
 				AC5041431AC0E6DD00BE2A41 /* back.png in Resources */,
+				E267F70D1AC2488C00EB57C8 /* bgScore.png in Resources */,
+				E267F7101AC24C8800EB57C8 /* score.png in Resources */,
 				1255545019C0D90600EC663C /* Default-Landscape~ipad.png in Resources */,
 				AC5041471AC0E9B300BE2A41 /* settings.png in Resources */,
 				1255544419C0D72000EC663C /* MusicInGame.mp3 in Resources */,
@@ -1755,6 +1766,7 @@
 				12F88AE819DDA1D20001531E /* CCEffectRenderer.m in Sources */,
 				12F88AEA19DDA1D20001531E /* CCEffectStack.m in Sources */,
 				1293CD8D19C08A25006A0E25 /* CCResponderManager.m in Sources */,
+				E267F70A1AC2483C00EB57C8 /* ScoreScene.swift in Sources */,
 				38327D6A1ABFA63C007C4EDE /* PlayerCar.swift in Sources */,
 				1293CDBF19C08A26006A0E25 /* CCTransition.m in Sources */,
 				38D156121ABF0EED0088ACDF /* Zumbi.swift in Sources */,

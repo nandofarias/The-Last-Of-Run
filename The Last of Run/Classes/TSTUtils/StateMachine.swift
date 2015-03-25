@@ -12,6 +12,7 @@ enum StateMachineScenes {
 	case HomeScene
 	case GameScene
     case SettingsScene
+    case ScoreScene
 };
 
 class StateMachine {
@@ -44,6 +45,8 @@ class StateMachine {
 			return GameScene()
         case StateMachineScenes.SettingsScene:
             return SettingsScene()
+        case StateMachineScenes.ScoreScene:
+            return ScoreScene()
 		default:
 			return CCScene()
 		}

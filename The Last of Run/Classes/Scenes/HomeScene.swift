@@ -32,7 +32,7 @@ class HomeScene : CCScene {
                
         // ToGame Button
         let toGameButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("start.png") as CCSpriteFrame)
-        toGameButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/4.0)
+        toGameButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/3.4)
         toGameButton.anchorPoint = CGPointMake(0.5, 0.5)
         SoundPlayHelper.sharedInstance.playSoundWithControl(GameMusicAndSoundFx.SoundFXButtonTap)
         toGameButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.GameScene, isFade:true)}
@@ -40,11 +40,19 @@ class HomeScene : CCScene {
         
         // To Settings Button
         let toSettingsButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("settings.png") as CCSpriteFrame)
-        toSettingsButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/8.0)
+        toSettingsButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/5.0)
         toSettingsButton.anchorPoint = CGPointMake(0.5, 0.5)
         SoundPlayHelper.sharedInstance.playSoundWithControl(GameMusicAndSoundFx.SoundFXButtonTap)
         toSettingsButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.SettingsScene, isFade:true)}
         self.addChild(toSettingsButton)
+        
+        // To Score Button
+        let toScoreButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("score.png") as CCSpriteFrame)
+        toScoreButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/9.2)
+        toScoreButton.anchorPoint = CGPointMake(0.5, 0.5)
+        SoundPlayHelper.sharedInstance.playSoundWithControl(GameMusicAndSoundFx.SoundFXButtonTap)
+        toScoreButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.ScoreScene, isFade:true)}
+        self.addChild(toScoreButton)
         
     }
     

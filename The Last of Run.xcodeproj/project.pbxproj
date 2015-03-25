@@ -226,6 +226,7 @@
 		AC5041571AC0EC9F00BE2A41 /* car03.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5041541AC0EC9F00BE2A41 /* car03.png */; };
 		B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B929AA101ABC97B1008A18DB /* Images.xcassets */; };
 		B929AA1B1ABCB5DB008A18DB /* ZombieTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */; };
+		B970E4D31AC34BE300B92BFA /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = B970E4D21AC34BE300B92BFA /* road.png */; };
 		E267F70A1AC2483C00EB57C8 /* ScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267F7091AC2483C00EB57C8 /* ScoreScene.swift */; };
 		E267F70D1AC2488C00EB57C8 /* bgScore.png in Resources */ = {isa = PBXBuildFile; fileRef = E267F70B1AC2488C00EB57C8 /* bgScore.png */; };
 		E267F7101AC24C8800EB57C8 /* score.png in Resources */ = {isa = PBXBuildFile; fileRef = E267F70F1AC24C8800EB57C8 /* score.png */; };
@@ -636,7 +637,6 @@
 		12F88ADD19DDA1D20001531E /* CCEffectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCEffectUtils.m; path = Libraries/cocos2d/CCEffectUtils.m; sourceTree = "<group>"; };
 		38327D6E1ABFBBBD007C4EDE /* ShipBlow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShipBlow.plist; sourceTree = "<group>"; };
 		38327D6F1ABFBBBD007C4EDE /* ShipBlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShipBlow.png; sourceTree = "<group>"; };
-		38979FED1AC28FD5002BC8AF /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		38979FEF1AC29186002BC8AF /* Gasolina.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gasolina.swift; sourceTree = "<group>"; };
 		38979FF01AC29186002BC8AF /* PlayerCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCar.swift; sourceTree = "<group>"; };
 		38979FF31AC2919D002BC8AF /* Zumbi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zumbi.swift; sourceTree = "<group>"; };
@@ -664,6 +664,7 @@
 		AC5041541AC0EC9F00BE2A41 /* car03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car03.png; sourceTree = "<group>"; };
 		B929AA101ABC97B1008A18DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B929AA1A1ABCB5DB008A18DB /* ZombieTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieTheme.mp3; sourceTree = "<group>"; };
+		B970E4D21AC34BE300B92BFA /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		E267F7091AC2483C00EB57C8 /* ScoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreScene.swift; sourceTree = "<group>"; };
 		E267F70B1AC2488C00EB57C8 /* bgScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgScore.png; sourceTree = "<group>"; };
 		E267F70F1AC24C8800EB57C8 /* score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = score.png; sourceTree = "<group>"; };
@@ -791,6 +792,7 @@
 			isa = PBXGroup;
 			children = (
 				E267F70B1AC2488C00EB57C8 /* bgScore.png */,
+				B970E4D21AC34BE300B92BFA /* road.png */,
 				E267F70F1AC24C8800EB57C8 /* score.png */,
 				AC11325A1AC0E60800985D8D /* bgSettings.png */,
 				38979FF91AC2922E002BC8AF /* gas.png */,
@@ -804,7 +806,6 @@
 				AC5041531AC0EC9F00BE2A41 /* car01.png */,
 				AC5041541AC0EC9F00BE2A41 /* car03.png */,
 				AC5041461AC0E9B300BE2A41 /* settings.png */,
-				38979FED1AC28FD5002BC8AF /* road.png */,
 				AC5041361AC0E1D000BE2A41 /* start.png */,
 				E2C3FB911AC2644F006A2A35 /* intro01.png */,
 				E2C3FB921AC2644F006A2A35 /* intro02.png */,
@@ -1703,6 +1704,7 @@
 				AC5041431AC0E6DD00BE2A41 /* back.png in Resources */,
 				E267F70D1AC2488C00EB57C8 /* bgScore.png in Resources */,
 				E267F7101AC24C8800EB57C8 /* score.png in Resources */,
+				B970E4D31AC34BE300B92BFA /* road.png in Resources */,
 				1255545019C0D90600EC663C /* Default-Landscape~ipad.png in Resources */,
 				AC5041471AC0E9B300BE2A41 /* settings.png in Resources */,
 				1255544419C0D72000EC663C /* MusicInGame.mp3 in Resources */,

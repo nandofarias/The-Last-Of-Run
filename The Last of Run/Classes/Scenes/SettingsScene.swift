@@ -29,6 +29,16 @@ class SettingsScene: CCScene {
         background.anchorPoint = CGPointMake(0.5, 0.5)
         self.addChild(background)
         
+        // Back button
+        let backButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("back.png") as CCSpriteFrame)
+        backButton.position = CGPointMake(screenSize.width-20, screenSize.height-60)
+        backButton.anchorPoint = CGPointMake(1.0, 1.0)
+        backButton.zoomWhenHighlighted = false
+        backButton.block = {_ in
+            StateMachine.sharedInstance.changeScene(StateMachineScenes.HomeScene, isFade:true)
+        }
+        self.addChild(backButton, z:ObjectsLayers.HUD.rawValue)
+        
         
     }
     

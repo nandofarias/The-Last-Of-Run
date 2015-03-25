@@ -35,7 +35,7 @@ class HomeScene : CCScene {
         toGameButton.position = CGPointMake(screenSize.width/2.0, screenSize.height/3.4)
         toGameButton.anchorPoint = CGPointMake(0.5, 0.5)
         SoundPlayHelper.sharedInstance.playSoundWithControl(GameMusicAndSoundFx.SoundFXButtonTap)
-        toGameButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.GameScene, isFade:true)}
+        toGameButton.block = {_ in StateMachine.sharedInstance.changeScene(StateMachineScenes.IntroScene, isFade:true)}
         self.addChild(toGameButton)
         
         // To Settings Button

@@ -228,6 +228,11 @@
 		E267F70A1AC2483C00EB57C8 /* ScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267F7091AC2483C00EB57C8 /* ScoreScene.swift */; };
 		E267F70D1AC2488C00EB57C8 /* bgScore.png in Resources */ = {isa = PBXBuildFile; fileRef = E267F70B1AC2488C00EB57C8 /* bgScore.png */; };
 		E267F7101AC24C8800EB57C8 /* score.png in Resources */ = {isa = PBXBuildFile; fileRef = E267F70F1AC24C8800EB57C8 /* score.png */; };
+		E2C3FB8B1AC25EE4006A2A35 /* intro04.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C3FB871AC25EE4006A2A35 /* intro04.png */; };
+		E2C3FB901AC25F09006A2A35 /* IntroScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3FB8F1AC25F09006A2A35 /* IntroScene.swift */; };
+		E2C3FB941AC2644F006A2A35 /* intro01.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C3FB911AC2644F006A2A35 /* intro01.png */; };
+		E2C3FB951AC2644F006A2A35 /* intro02.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C3FB921AC2644F006A2A35 /* intro02.png */; };
+		E2C3FB961AC2644F006A2A35 /* intro03.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C3FB931AC2644F006A2A35 /* intro03.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -659,6 +664,11 @@
 		E267F7091AC2483C00EB57C8 /* ScoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreScene.swift; sourceTree = "<group>"; };
 		E267F70B1AC2488C00EB57C8 /* bgScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgScore.png; sourceTree = "<group>"; };
 		E267F70F1AC24C8800EB57C8 /* score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = score.png; sourceTree = "<group>"; };
+		E2C3FB871AC25EE4006A2A35 /* intro04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro04.png; sourceTree = "<group>"; };
+		E2C3FB8F1AC25F09006A2A35 /* IntroScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroScene.swift; path = ../TSTUtils/IntroScene.swift; sourceTree = "<group>"; };
+		E2C3FB911AC2644F006A2A35 /* intro01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro01.png; sourceTree = "<group>"; };
+		E2C3FB921AC2644F006A2A35 /* intro02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro02.png; sourceTree = "<group>"; };
+		E2C3FB931AC2644F006A2A35 /* intro03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro03.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -711,6 +721,7 @@
 		1255543119C09CD200EC663C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E2C3FB8F1AC25F09006A2A35 /* IntroScene.swift */,
 				AC50413C1AC0E26300BE2A41 /* HomeScene.swift */,
 				E267F7091AC2483C00EB57C8 /* ScoreScene.swift */,
 				AC50413D1AC0E26300BE2A41 /* LoadingScene.swift */,
@@ -791,6 +802,10 @@
 				AC5041461AC0E9B300BE2A41 /* settings.png */,
 				AC5041361AC0E1D000BE2A41 /* start.png */,
 				38D1566D1ABF44E40088ACDF /* zombie.png */,
+				E2C3FB911AC2644F006A2A35 /* intro01.png */,
+				E2C3FB921AC2644F006A2A35 /* intro02.png */,
+				E2C3FB931AC2644F006A2A35 /* intro03.png */,
+				E2C3FB871AC25EE4006A2A35 /* intro04.png */,
 				B929AA101ABC97B1008A18DB /* Images.xcassets */,
 				AC50414D1AC0EA6700BE2A41 /* Boneco */,
 				AC5041481AC0EA3700BE2A41 /* Carro */,
@@ -1665,9 +1680,13 @@
 				AC5041551AC0EC9F00BE2A41 /* car02.png in Resources */,
 				1255544519C0D72000EC663C /* SoundFXButtonTap.mp3 in Resources */,
 				B929AA111ABC97B1008A18DB /* Images.xcassets in Resources */,
+				E2C3FB951AC2644F006A2A35 /* intro02.png in Resources */,
 				1226621019F00CD6001FE3B9 /* fire.png in Resources */,
 				AC5041501AC0EA9900BE2A41 /* Boneco.plist in Resources */,
 				38327D711ABFBBBD007C4EDE /* ShipBlow.png in Resources */,
+				E2C3FB941AC2644F006A2A35 /* intro01.png in Resources */,
+				E2C3FB961AC2644F006A2A35 /* intro03.png in Resources */,
+				E2C3FB8B1AC25EE4006A2A35 /* intro04.png in Resources */,
 				AC5041371AC0E1D000BE2A41 /* bgLoading.png in Resources */,
 				38327D701ABFBBBD007C4EDE /* ShipBlow.plist in Resources */,
 				AC11325B1AC0E60800985D8D /* bgSettings.png in Resources */,
@@ -1752,6 +1771,7 @@
 				1293CD0F19C08A25006A0E25 /* CCAction.m in Sources */,
 				1293CE4919C08A26006A0E25 /* ALWrapper.m in Sources */,
 				1293CE9319C08A26006A0E25 /* CCBsequence.m in Sources */,
+				E2C3FB901AC25F09006A2A35 /* IntroScene.swift in Sources */,
 				1293CE7E19C08A26006A0E25 /* CCTableView.m in Sources */,
 				1293CD4D19C08A25006A0E25 /* CCLayout.m in Sources */,
 				1293CD7D19C08A25006A0E25 /* CCPhysicsShape.m in Sources */,

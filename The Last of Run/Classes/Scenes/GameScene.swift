@@ -270,9 +270,18 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.player.removeFromParentAndCleanup(true)
         
         // Registra o novo best score caso haja
-        let scores: [Int] = NSUserDefaults.standardUserDefaults().objectForKey("scores") as [Int]
+        var scores: [Int] = NSUserDefaults.standardUserDefaults().objectForKey("scores") as [Int]
         
+        scores.insert(self.score, atIndex: scores.count)
         
+        scores.sort({ $0 > $1 })
+        
+        scores.removeLast()
+        
+        NSUserDefaults.standardUserDefaults().setObject(scores  , forKey: "scores")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        println(scores)
         
         // Percorre e cancela toda movimentacao dos insetos
         for node:AnyObject in self.children as Array<AnyObject> {

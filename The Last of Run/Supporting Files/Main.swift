@@ -11,7 +11,7 @@ import Foundation
 
 	// MARK: Life Cycle
 	override func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        setupCocos2dWithOptions([CCSetupShowDebugStats: true, CCSetupScreenOrientation: CCScreenOrientationPortrait])
+        setupCocos2dWithOptions([CCSetupShowDebugStats: false, CCSetupScreenOrientation: CCScreenOrientationPortrait])
 
 		return true
 	}

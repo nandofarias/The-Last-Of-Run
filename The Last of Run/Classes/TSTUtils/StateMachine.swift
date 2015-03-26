@@ -14,6 +14,7 @@ enum StateMachineScenes {
     case SettingsScene
     case ScoreScene
     case IntroScene
+    case CreditosScene
     
 };
 
@@ -51,6 +52,8 @@ class StateMachine {
             return ScoreScene()
         case StateMachineScenes.IntroScene:
             return IntroScene()
+        case StateMachineScenes.CreditosScene:
+            return CreditosScene()
 		default:
 			return CCScene()
 		}

@@ -32,6 +32,8 @@ class LoadingScene : CCScene {
         CCSpriteFrameCache.sharedSpriteFrameCache().addSpriteFramesWithFile("playercar.plist")
         
         self.createSceneObjects()
+        
+        self.firstInitScores()
 
 	}
 
@@ -39,6 +41,17 @@ class LoadingScene : CCScene {
 		// Chamado apos o init quando entra no director
 		super.onEnter()
 	}
+    
+    func firstInitScores(){
+        var scores : [Int]? = NSUserDefaults.standardUserDefaults().objectForKey("scores") as? [Int]
+        if (scores == nil){
+            NSUserDefaults.standardUserDefaults().setObject([0,0,0], forKey: "scores")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
+        
+    }
+    
 
     // MARK: - Private Methods
     func createSceneObjects() {

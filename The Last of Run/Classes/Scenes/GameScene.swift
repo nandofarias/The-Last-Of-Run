@@ -12,6 +12,11 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
 	// MARK: - Public Objects
 	
 	// MARK: - Private Objects
+    private let raia1:CGFloat = 35.0
+    private let raia2:CGFloat = 95.0
+    private let raia3:CGFloat = 160.0
+    private let raia4:CGFloat = 230.0
+    private let raia5:CGFloat = 285.0
     
     private let screenSize:CGSize = CCDirector.sharedDirector().viewSize()
     private var canTap:Bool = true
@@ -23,7 +28,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     var physicsWorld:CCPhysicsNode = CCPhysicsNode()
     var player:PlayerCar = PlayerCar(imageNamed:"playercar1.png")
     var canPlay:Bool = true
-    var isTouching:Bool = false
+    var isTouching:Bool = true
     var parallaxNode:CCParallaxNode = CCParallaxNode()
     let bgroad1:CCSprite = CCSprite(imageNamed: "road.png")
     let bgroad2:CCSprite = CCSprite(imageNamed: "road.png")
@@ -94,21 +99,6 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.physicsWorld.collisionDelegate = self
         self.physicsWorld.gravity = CGPointZero
         self.addChild(self.physicsWorld, z:ObjectsLayers.Background.rawValue)
-        
-        //criando cercas
-        var cerca1:CCNode = CCNode()
-        cerca1.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, 5, 568), cornerRadius: 0.0)
-        cerca1.physicsBody.type = CCPhysicsBodyType.Static
-        cerca1.physicsBody.collisionCategories = ["Cerca"]
-        cerca1.physicsBody.collisionMask = ["PlayerCar"]
-        self.physicsWorld.addChild(cerca1)
-        
-        var cerca2:CCNode = CCNode()
-        cerca2.physicsBody = CCPhysicsBody(rect: CGRectMake(self.screenSize.width, 0, 5, 568), cornerRadius: 0.0)
-        cerca2.physicsBody.type = CCPhysicsBodyType.Static
-        cerca2.physicsBody.collisionCategories = ["Cerca"]
-        cerca2.physicsBody.collisionMask = ["PlayerCar"]
-        self.physicsWorld.addChild(cerca2)
 
         
         // Configura o parallax infinito
@@ -132,7 +122,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.addChild(backButton, z:ObjectsLayers.HUD.rawValue)
         
         // Configura o heroi na tela
-        self.player.position = CGPointMake(screenSize.width/2.0, 80.0)
+        self.player.position = CGPointMake(raia3, 80.0)
         self.physicsWorld.addChild(self.player, z:ObjectsLayers.Player.rawValue)
     }
     
@@ -156,7 +146,28 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
             //let bugAmout:Int = Int(arc4random_uniform(5) + 1)
             
             for (var i = 0; i < 1; i++) {
-                let positionX:CGFloat = CGFloat(arc4random_uniform(300))
+                let auxPosition:CGFloat = CGFloat(arc4random_uniform(5)+1)
+                var positionX:CGFloat = self.raia3
+                switch auxPosition {
+                case 1:
+                    positionX = self.raia1
+                    break;
+                case 2:
+                    positionX = self.raia2
+                    break;
+                case 3:
+                    positionX = self.raia3
+                    break;
+                case 4:
+                    positionX = self.raia4
+                    break;
+                case 5:
+                    positionX = self.raia5
+                    break;
+                default:
+                    println("nada...")
+                    break;
+                }
                 var zombie:Zumbi = Zumbi(event: "updateScore", target: self)
                 zombie.position = CGPointMake(positionX, self.screenSize.height + (CGFloat(arc4random_uniform(100) + 50)))
                 zombie.name = "z"
@@ -165,7 +176,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
             }
             
             // Apos geracao, registra nova geracao apos um tempo
-            DelayHelper.sharedInstance.callFunc("generateZombie", onTarget: self, withDelay: 2.0)
+            DelayHelper.sharedInstance.callFunc("generateZombie", onTarget: self, withDelay: 1.0)
         }
     }
     
@@ -227,16 +238,62 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     // MARK: - Touchs Delegates
     override func touchBegan(touch: UITouch!, withEvent event: UIEvent!) {
         if (self.canPlay) {
-            self.isTouching = true
             let locationInView:CGPoint = CCDirector.sharedDirector().convertTouchToGL(touch)
+            
+            println(locationInView)
             
             let centro:CGFloat = self.screenSize.width / 2.0
             
             if ( centro > locationInView.x) {
                 //self.player.position = CGPointMake(self.player.position.x - 40.0, self.player.position.y)
-                self.player.changeToLeft()
+
+                switch self.player.raia {
+                    
+                case self.raia1:
+                    //...
+                    break;
+                case self.raia2:
+                    self.player.raia = self.raia1
+                    break;
+                case self.raia3:
+                    self.player.raia = self.raia2
+                    break;
+                case self.raia4:
+                    self.player.raia = self.raia3
+                    break;
+                case self.raia5:
+                    self.player.raia = self.raia4
+                    break;
+                default:
+                    println("nada...")
+                    break;
+                }
+                
+                self.player.changeToRight(self.player.raia)
+                
             } else {
-                self.player.changeToRight()
+                
+                switch self.player.raia {
+                case self.raia5:
+                    
+                    break;
+                case self.raia4:
+                    self.player.raia = self.raia5
+                    break;
+                case self.raia3:
+                    self.player.raia = self.raia4
+                    break;
+                case self.raia2:
+                    self.player.raia = self.raia3
+                    break;
+                case self.raia1:
+                    self.player.raia = self.raia2
+                    break;
+                default:
+                    println("nada...")
+                    break;
+                }
+                self.player.changeToLeft(self.player.raia)
             }
             
 

@@ -25,17 +25,17 @@ class Zumbi : CCSprite {
         
         // Cria o sprite da barata animado
         self.spriteZumbi = self.gerarAnimacaoSpriteWithName("zumbi", aQtdFrames: 6)
-        self.spriteZumbi!.anchorPoint = CGPointMake(0.0, 0.0);
+        self.spriteZumbi!.anchorPoint = CGPointMake(0.5, 0.5);
         self.spriteZumbi!.position = CGPointMake(0.0, 0.0);
         self.addChild(self.spriteZumbi, z:2)
         
         self.spriteZumbiAtropelado.opacity = 0.0
-        self.spriteZumbiAtropelado.anchorPoint = CGPointMake(0.0, 0.0);
+        self.spriteZumbiAtropelado.anchorPoint = CGPointMake(0.5, 0.5);
         self.spriteZumbiAtropelado.position = CGPointMake(0.0, 0.0);
         self.addChild(self.spriteZumbiAtropelado, z:1)
 
         // Configuracoes default
-        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.spriteZumbi!.contentSize.width, self.spriteZumbi!.contentSize.height), cornerRadius: 0.0)
+        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.spriteZumbi!.contentSize.width/2, self.spriteZumbi!.contentSize.height), cornerRadius: 0.0)
         self.physicsBody.type = CCPhysicsBodyType.Kinematic
         self.physicsBody.friction = 1.0
         self.physicsBody.elasticity = 0.1

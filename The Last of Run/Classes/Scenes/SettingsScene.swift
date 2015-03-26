@@ -15,9 +15,16 @@ class SettingsScene: CCScene {
     // MARK: - Private Objects
     var buttonIsOnMusic:Bool = true
     var buttonIsOnEffects:Bool = true
+    
+    
+    
     // MARK: - Life Cycle
     override init() {
         super.init()
+        
+        
+        buttonIsOnMusic = NSUserDefaults.standardUserDefaults().objectForKey("musicSettings") as Bool
+        buttonIsOnEffects = NSUserDefaults.standardUserDefaults().objectForKey("effectsSettings") as Bool
         
         self.createSceneObjects()
         
@@ -41,49 +48,57 @@ class SettingsScene: CCScene {
         }
         self.addChild(backButton, z:ObjectsLayers.HUD.rawValue)
         
+        
+        
+        
         // MUSIC
-        let music:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("music.png") as CCSpriteFrame)
+        let music:CCSprite = CCSprite(imageNamed: "music.png")
         music.position = CGPointMake(screenSize.width/2, screenSize.height/1.4)
         music.anchorPoint = CGPointMake(0.5, 0.5)
         self.addChild(music, z:ObjectsLayers.HUD.rawValue)
         
-        // ON button
-        if buttonIsOnMusic{
-        let onButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("on.png") as CCSpriteFrame)
-        onButton.position = CGPointMake(screenSize.width/2, screenSize.height/1.6)
-        onButton.anchorPoint = CGPointMake(0.5, 0.5)
-        onButton.zoomWhenHighlighted = false
-        self.addChild(onButton, z:ObjectsLayers.HUD.rawValue)
-        }else{
-        // OFF button
-        let offButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("off.png") as CCSpriteFrame)
-        offButton.position = CGPointMake(screenSize.width/2, screenSize.height/1.6)
-        offButton.anchorPoint = CGPointMake(0.5, 0.5)
-        offButton.zoomWhenHighlighted = false
-        self.addChild(offButton, z:ObjectsLayers.HUD.rawValue)
+        
+        // ON/OFF Music button
+        
+        let onOffMusicButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed(buttonIsOnMusic ? "off.png" : "on.png") as CCSpriteFrame)
+        onOffMusicButton.position = CGPointMake(screenSize.width/2, screenSize.height/1.6)
+        onOffMusicButton.anchorPoint = CGPointMake(0.5, 0.5)
+        onOffMusicButton.zoomWhenHighlighted = false
+        onOffMusicButton.block = {_ in
+            
+            self.buttonIsOnMusic = !self.buttonIsOnMusic
+            NSUserDefaults.standardUserDefaults().setObject(self.buttonIsOnMusic, forKey: "musicSettings")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            StateMachine.sharedInstance.changeScene(StateMachineScenes.SettingsScene, isFade: false)
         }
+        self.addChild(onOffMusicButton, z:ObjectsLayers.HUD.rawValue)
+  
+        
+        
+        
+        
         // EFFECTS
-        let effects:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("effects.png") as CCSpriteFrame)
+        let effects:CCSprite = CCSprite(imageNamed: "effects.png")
         effects.position = CGPointMake(screenSize.width/2, screenSize.height/2.2)
         effects.anchorPoint = CGPointMake(0.5, 0.5)
         self.addChild(effects, z:ObjectsLayers.HUD.rawValue)
         
         // ON button
-        if buttonIsOnEffects{
-        let onButton2:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("on.png") as CCSpriteFrame)
-        onButton2.position = CGPointMake(screenSize.width/2, screenSize.height/2.8)
-        onButton2.anchorPoint = CGPointMake(0.5, 0.5)
-        onButton2.zoomWhenHighlighted = false
-        self.addChild(onButton2, z:ObjectsLayers.HUD.rawValue)
+        let onOffEffectsButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed(buttonIsOnEffects ? "off.png" : "on.png") as CCSpriteFrame)
+        onOffEffectsButton.position = CGPointMake(screenSize.width/2, screenSize.height/2.8)
+        onOffEffectsButton.anchorPoint = CGPointMake(0.5, 0.5)
+        onOffEffectsButton.zoomWhenHighlighted = false
+        onOffEffectsButton.block = {_ in
+            self.buttonIsOnEffects = !self.buttonIsOnEffects
+            NSUserDefaults.standardUserDefaults().setObject(self.buttonIsOnEffects, forKey: "effectsSettings")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            StateMachine.sharedInstance.changeScene(StateMachineScenes.SettingsScene, isFade: false)
         }
-        // OFF button
-        else{
-        let offButton2:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("off.png") as CCSpriteFrame)
-        offButton2.position = CGPointMake(screenSize.width/2, screenSize.height/2.8)
-        offButton2.anchorPoint = CGPointMake(0.5, 0.5)
-        offButton2.zoomWhenHighlighted = false
-        self.addChild(offButton2, z:ObjectsLayers.HUD.rawValue)
-        }
+        self.addChild(onOffEffectsButton, z:ObjectsLayers.HUD.rawValue)
+        
+        
+        
+  
         // Créditos button
         let creditosButton:CCButton = CCButton(title: "", spriteFrame: CCSpriteFrame.frameWithImageNamed("credits.png") as CCSpriteFrame)
         creditosButton.position = CGPointMake(screenSize.width/2, screenSize.height/9.0)

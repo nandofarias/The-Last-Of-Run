@@ -33,7 +33,7 @@ class LoadingScene : CCScene {
         
         self.createSceneObjects()
         
-        self.firstInitScores()
+        self.firstInitUserDefaults()
 
 	}
 
@@ -42,12 +42,26 @@ class LoadingScene : CCScene {
 		super.onEnter()
 	}
     
-    func firstInitScores(){
+    func firstInitUserDefaults(){
         var scores : [Int]? = NSUserDefaults.standardUserDefaults().objectForKey("scores") as? [Int]
         if (scores == nil){
             NSUserDefaults.standardUserDefaults().setObject([0,0,0], forKey: "scores")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
+        
+        var musicSettings : Bool? = NSUserDefaults.standardUserDefaults().objectForKey("musicSettings") as? Bool
+        if (musicSettings == nil){
+            NSUserDefaults.standardUserDefaults().setObject(true, forKey: "musicSettings")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
+        var effectsSettings : Bool? = NSUserDefaults.standardUserDefaults().objectForKey("effectsSettings") as? Bool
+        if (effectsSettings == nil){
+            NSUserDefaults.standardUserDefaults().setObject(true, forKey: "effectsSettings")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
+        
         
         
     }

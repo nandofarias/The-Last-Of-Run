@@ -53,13 +53,20 @@ class SoundPlayHelper {
 	}
 
 	func playSoundWithControl(aGameMusic:GameMusicAndSoundFx) {
-		OALSimpleAudio.sharedInstance().playEffect(aGameMusic.rawValue)
+        
+        let isEffectsOn = NSUserDefaults.standardUserDefaults().objectForKey("effectsSettings") as Bool
+        if (isEffectsOn){
+            OALSimpleAudio.sharedInstance().playEffect(aGameMusic.rawValue)
+        }
 	}
 
 	func playMusicWithControl(aGameMusic:GameMusicAndSoundFx, withLoop:Bool) {
-		OALSimpleAudio.sharedInstance().stopBg()
-		OALSimpleAudio.sharedInstance().preloadBg(aGameMusic.rawValue)
-		OALSimpleAudio.sharedInstance().playBgWithLoop(withLoop)
+        let isMusicOn = NSUserDefaults.standardUserDefaults().objectForKey("musicSettings") as Bool
+        if (isMusicOn){
+            OALSimpleAudio.sharedInstance().stopBg()
+            OALSimpleAudio.sharedInstance().preloadBg(aGameMusic.rawValue)
+            OALSimpleAudio.sharedInstance().playBgWithLoop(withLoop)
+        }
 	}
 
 	func stopAllSounds() {

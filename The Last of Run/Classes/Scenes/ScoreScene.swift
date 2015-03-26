@@ -15,10 +15,18 @@ class ScoreScene: CCScene {
     // MARK: - Private Objects
     
     // MARK: - Life Cycle
+    
+    
+    var scores: [Int] = []
+    
+    var stringMessageScores = "No Scores Avaiable"
+    
     override init() {
         super.init()
         
-        self.createSceneObjects()
+        self.scores = NSUserDefaults.standardUserDefaults().objectForKey("scores") as [Int]
+        
+        createSceneObjects()
         
     }
     
@@ -39,6 +47,22 @@ class ScoreScene: CCScene {
             StateMachine.sharedInstance.changeScene(StateMachineScenes.HomeScene, isFade:true)
         }
         self.addChild(backButton, z:ObjectsLayers.HUD.rawValue)
+        
+
+        if (!scores.isEmpty){
+            self.stringMessageScores = "Best Scores: "
+            for score in scores{
+                self.stringMessageScores = self.stringMessageScores + "\n\(score)"
+            }
+            println(scores)
+        }
+        
+        let score:CCLabelTTF = CCLabelTTF(string: stringMessageScores, fontName: "Verdana", fontSize: 30)
+        score.horizontalAlignment = CCTextAlignment.Center
+        score.position = CGPointMake(screenSize.width/2, screenSize.height/2)
+        score.anchorPoint = CGPointMake(0.5, 0.5)
+        self.addChild(score, z:ObjectsLayers.HUD.rawValue)
+
         
         
     }

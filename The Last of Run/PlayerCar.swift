@@ -13,8 +13,7 @@ class PlayerCar : CCSprite {
     // MARK: - Public Objects
     var carStatus:CGFloat = 100.0
     var gasoline:CGFloat = 100.0
-    var isLeft:Bool = false
-    var isRight:Bool = false
+    var isMoving:Bool = false
     var raia:CGFloat = 160.0
     
     var turnLeft:CCActionAnimate?
@@ -115,23 +114,28 @@ class PlayerCar : CCSprite {
     
     
     // MARK: - Public Methods
+    func setNewRaia(raiaValue: CGFloat) {
+         if (!self.isMoving) {
+            self.raia = raiaValue
+        }
+    }
+    
     func changeToRight(raia: CGFloat) {
         // Previne chamadas repetidas
-        if (!self.isLeft) {
+        if (!self.isMoving) {
             // Cancela a animacao existente no alien
             self.stopAllActions()
-            self.isLeft = true
+            self.isMoving = true
             // Redefine a imagem - teste
             //self.spriteFrame = CCSpriteFrameCache.sharedSpriteFrameCache().spriteFrameByName("Carrinho3.png")
             
             // Redefine a acao - CCActionSpawn para rodar acoes simultaneas
-            let arrActions:[CCAction] =
-            [self.createActionLeft() as CCAction, CCActionMoveTo.actionWithDuration(0.5, position:CGPointMake(raia, self.position.y)) as CCAction
-                , CCActionCallBlock.actionWithBlock( {_ in
+            let arrActions:[CCAction] = [CCActionSpawn.actionOne(self.createActionLeft() as CCActionFiniteTime, two: CCActionMoveTo.actionWithDuration(0.5, position:CGPointMake(raia, self.position.y)) as CCActionFiniteTime) as CCAction,
+                CCActionCallBlock.actionWithBlock( {_ in
                     println("Foi para esquerda")
-                    self.isLeft = false
+                    self.isMoving = false
                 }) as CCAction]
-            let acoes:CCAction = CCActionSpawn.actionWithArray(arrActions) as CCAction
+            let acoes:CCAction = CCActionSequence.actionWithArray(arrActions) as CCAction
             
             self.runAction(acoes)
 
@@ -143,19 +147,18 @@ class PlayerCar : CCSprite {
     
     func changeToLeft(raia: CGFloat) {
         // Previne chamadas repetidas
-        if (!self.isRight) {
+        if (!self.isMoving) {
             // Cancela a animacao existente no alien
             self.stopAllActions()
-            self.isRight = true
+            self.isMoving = true
             // Redefine a acao - (animacao completa)
         
-            let arrActions:[CCAction] =
-            [self.createActionRight() as CCAction, CCActionMoveTo.actionWithDuration(0.5, position:CGPointMake(raia, self.position.y)) as CCAction
-                , CCActionCallBlock.actionWithBlock( {_ in
-                    println("Foi para Direita")
-                    self.isRight = false
+            let arrActions:[CCAction] = [CCActionSpawn.actionOne(self.createActionRight() as CCActionFiniteTime, two: CCActionMoveTo.actionWithDuration(0.5, position:CGPointMake(raia, self.position.y)) as CCActionFiniteTime) as CCAction,
+                CCActionCallBlock.actionWithBlock( {_ in
+                    println("Foi para esquerda")
+                    self.isMoving = false
                 }) as CCAction]
-            let acoes:CCAction = CCActionSpawn.actionWithArray(arrActions) as CCAction
+            let acoes:CCAction = CCActionSequence.actionWithArray(arrActions) as CCAction
         
             self.runAction(acoes)
             

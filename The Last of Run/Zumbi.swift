@@ -109,8 +109,8 @@ class Zumbi : CCSprite {
     
     // MARK: - Public Methods
     // MARK: - Public Methods
-    internal func moveMe() {
-        let speed:CGFloat = CGFloat(arc4random_uniform(2) + 3)
+    internal func moveMe(vel : CGFloat) {
+        let speed:CGFloat = vel
         self.runAction(CCActionSequence.actionOne(CCActionMoveTo.actionWithDuration(CCTime(speed), position: CGPointMake(self.position.x, self.height() * -2)) as CCActionFiniteTime,
             two: CCActionCallBlock.actionWithBlock({ _ in
                 self.stopAllSpriteActions()
@@ -131,7 +131,7 @@ class Zumbi : CCSprite {
         }) as CCActionFiniteTime) as CCAction)
         
         // Mata o zumbi e executa o evento informado
-        DelayHelper.sharedInstance.callFunc(self.eventSelector!, onTarget: self.targetID!, withDelay: 0.0)
+        //DelayHelper.sharedInstance.callFunc(self.eventSelector!, onTarget: self.targetID!, withDelay: 0.0)
     }
     
     internal func stopAllSpriteActions() {

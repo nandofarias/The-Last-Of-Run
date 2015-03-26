@@ -54,7 +54,6 @@ class ScoreScene: CCScene {
             for score in scores{
                 self.stringMessageScores = self.stringMessageScores + "\n\(score)"
             }
-            println(scores)
         }
         
         let score:CCLabelTTF = CCLabelTTF(string: stringMessageScores, fontName: "Verdana", fontSize: 30)

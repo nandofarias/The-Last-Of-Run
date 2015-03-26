@@ -22,9 +22,11 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     private var canTap:Bool = true
     private var score:Int = 0
     private var velLevel:CGFloat = -300.0
+    private var velSprites:CGFloat = 4.5
     private var gasLabel:CCLabelTTF = CCLabelTTF(string:"Gasolina: 100%", fontName:"Verdana-Bold", fontSize:18.0)
     
     var carStateLabel:CCLabelTTF = CCLabelTTF(string: "Carro: 100.0%", fontName: "Verdana-Bold", fontSize: 18.0)
+    var scoreLabel:CCLabelTTF = CCLabelTTF(string: "Tempo: 0s", fontName: "Verdana-Bold", fontSize: 18.0)
     var physicsWorld:CCPhysicsNode = CCPhysicsNode()
     var player:PlayerCar = PlayerCar(imageNamed:"playercar1.png")
     var canPlay:Bool = true
@@ -60,11 +62,20 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.gasLabel.anchorPoint = CGPointMake(0.0, 1.0)
         self.addChild(self.gasLabel, z: ObjectsLayers.HUD.rawValue)
         
+        // Score
+        self.scoreLabel.fontColor = CCColor.redColor()
+        self.scoreLabel.position = CGPointMake(0.0, screenSize.height - 40)
+        self.scoreLabel.anchorPoint = CGPointMake(0.0, 1.0)
+        self.addChild(self.scoreLabel, z: ObjectsLayers.HUD.rawValue)
+        
         // Registra a criacao de zumbis
         DelayHelper.sharedInstance.callFunc("generateZombie", onTarget: self, withDelay: 0.1)
         
         // Registra o indicador da gasolina
         DelayHelper.sharedInstance.callFunc("outOfGasTick", onTarget: self, withDelay: 1.0)
+        
+        // Registra o indicador de score
+        DelayHelper.sharedInstance.callFunc("updateScore", onTarget: self, withDelay: 1.0)
         
         // Registra a criacao da gasolina
         DelayHelper.sharedInstance.callFunc("generateGas", onTarget: self, withDelay: 20.0)
@@ -75,9 +86,15 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
 	override func update(delta: CCTime) {
         
         // ==================== CONTROLE DO PARALLAX
-        
         // Parallax infinito com apenas uma imagem
-        var backgroundScrollVel:CGPoint = CGPointMake(0, velLevel--)
+        
+        // controle para aumentar a velocidade do parallax
+        var backgroundScrollVel:CGPoint
+        if (velLevel < -1000) {
+            backgroundScrollVel = CGPointMake(0, -1000)
+        } else {
+            backgroundScrollVel = CGPointMake(0, velLevel--)
+        }
         
         // Soma os pontos (posicao atual + (velocidade * delta))
         let pt1:CGFloat = backgroundScrollVel.y * CGFloat(delta)
@@ -129,8 +146,13 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     
     func outOfGasTick() {
         if (self.canPlay) {
-            player.gasoline--
-            if (player.gasoline <= 0) {
+            if(self.player.raia == self.raia1 || self.player.raia == self.raia5){
+                self.player.gasoline -= 10.0
+            } else {
+                self.player.gasoline -= 0.5
+            }
+            if (self.player.gasoline < 0) {
+                self.gasLabel.string = "Gasolina: 0.0%"
                 self.doGameOver()
             } else {
                 self.gasLabel.string = "Gasolina: \(player.gasoline)%"
@@ -140,18 +162,47 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         }
     }
     
+    func updateScore() {
+        if (self.canPlay) {
+            
+            switch (self.score) {
+            case 20:
+                self.velSprites = 4
+                break;
+            case 30:
+                self.velSprites = 3
+                break;
+            case 40:
+                self.velSprites = 2
+                break;
+            case 50:
+                self.velSprites = 1
+                break;
+            case 60:
+                self.velSprites = 0.5
+                break;
+            default:
+                println("nada...")
+                break;
+            }
+            
+            self.score++
+            self.scoreLabel.string = "Tempo: \(self.score)s"
+            // Chama de 1 em 1 seg
+            DelayHelper.sharedInstance.callFunc("updateScore", onTarget: self, withDelay: 1.0)
+        }
+    }
+
+    
     func generateZombie() {
         if (self.canPlay) {
             // Quantidade de inseto gerado por vez...
             //let bugAmout:Int = Int(arc4random_uniform(5) + 1)
             
             for (var i = 0; i < 1; i++) {
-                let auxPosition:CGFloat = CGFloat(arc4random_uniform(5)+1)
+                let auxPosition:CGFloat = CGFloat(arc4random_uniform(3)+2)
                 var positionX:CGFloat = self.raia3
                 switch auxPosition {
-                case 1:
-                    positionX = self.raia1
-                    break;
                 case 2:
                     positionX = self.raia2
                     break;
@@ -161,9 +212,6 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
                 case 4:
                     positionX = self.raia4
                     break;
-                case 5:
-                    positionX = self.raia5
-                    break;
                 default:
                     println("nada...")
                     break;
@@ -172,7 +220,7 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
                 zombie.position = CGPointMake(positionX, self.screenSize.height + (CGFloat(arc4random_uniform(100) + 50)))
                 zombie.name = "z"
                 self.physicsWorld.addChild(zombie, z:ObjectsLayers.Foes.rawValue)
-                zombie.moveMe()
+                zombie.moveMe(self.velSprites)
             }
             
             // Apos geracao, registra nova geracao apos um tempo
@@ -181,12 +229,27 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
     }
     
     func generateGas() {
-        let positionX:CGFloat = CGFloat(arc4random_uniform(300))
+        let auxPosition:CGFloat = CGFloat(arc4random_uniform(3)+2)
+        var positionX:CGFloat = self.raia3
+        switch auxPosition {
+        case 2:
+            positionX = self.raia2
+            break;
+        case 3:
+            positionX = self.raia3
+            break;
+        case 4:
+            positionX = self.raia4
+            break;
+        default:
+            println("nada...")
+            break;
+        }
         var gas:Gasolina = Gasolina(imageNamed: "gas.png")
         gas.position = CGPointMake(positionX, self.screenSize.height + 50)
         gas.name = "gas"
         self.physicsWorld.addChild(gas, z:ObjectsLayers.Foes.rawValue)
-        gas.moveMe()
+        gas.moveMe(self.velSprites)
         
         // Apos geracao, registra nova geracao apos um tempo
         DelayHelper.sharedInstance.callFunc("generateGas", onTarget: self, withDelay: 20.0)
@@ -207,10 +270,9 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         self.player.removeFromParentAndCleanup(true)
         
         // Registra o novo best score caso haja
-        let oldScore:Int = NSUserDefaults.standardUserDefaults().integerForKey("KeyBestScore")
-        if (self.score > oldScore) {
-            NSUserDefaults.standardUserDefaults().setInteger(self.score, forKey: "KeyBestScore")
-        }
+        let scores: [Int] = NSUserDefaults.standardUserDefaults().objectForKey("scores") as [Int]
+        
+        
         
         // Percorre e cancela toda movimentacao dos insetos
         for node:AnyObject in self.children as Array<AnyObject> {
@@ -226,13 +288,6 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         gameover.anchorPoint = CGPointMake(0.5, 0.5)
         self.addChild(gameover, z:ObjectsLayers.HUD.rawValue)
     }
-    
-	// MARK: - Public Methods
-    func updateScore() {
-        println("tESTE")
-    }
-    
-
     
 	// MARK: - Delegates/Datasources
     // MARK: - Touchs Delegates
@@ -253,16 +308,16 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
                     //...
                     break;
                 case self.raia2:
-                    self.player.raia = self.raia1
+                    self.player.setNewRaia(self.raia1)
                     break;
                 case self.raia3:
-                    self.player.raia = self.raia2
+                    self.player.setNewRaia(self.raia2)
                     break;
                 case self.raia4:
-                    self.player.raia = self.raia3
+                    self.player.setNewRaia(self.raia3)
                     break;
                 case self.raia5:
-                    self.player.raia = self.raia4
+                    self.player.setNewRaia(self.raia4)
                     break;
                 default:
                     println("nada...")
@@ -278,16 +333,16 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
                     
                     break;
                 case self.raia4:
-                    self.player.raia = self.raia5
+                    self.player.setNewRaia(self.raia5)
                     break;
                 case self.raia3:
-                    self.player.raia = self.raia4
+                    self.player.setNewRaia(self.raia4)
                     break;
                 case self.raia2:
-                    self.player.raia = self.raia3
+                    self.player.setNewRaia(self.raia3)
                     break;
                 case self.raia1:
-                    self.player.raia = self.raia2
+                    self.player.setNewRaia(self.raia2)
                     break;
                 default:
                     println("nada...")
@@ -309,9 +364,6 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
             self.doGameOver()
         }
         
-        //particula da batida
-        self.createParticleAtPosition(aZombie.position)
-        
         // Atropela e remove o zumbi
         aZombie.runOver()
         
@@ -330,9 +382,6 @@ class GameScene: CCScene, CCPhysicsCollisionDelegate {
         if (player.gasoline > 100.0){
             player.gasoline = 100.0
         }
-
-        //particula do PowerUp
-        self.createParticleAtPosition(aGas.position)
         
         //Colocar som do PowerUp
         

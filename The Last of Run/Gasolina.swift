@@ -41,7 +41,7 @@ class Gasolina : CCSprite {
     override init(imageNamed imageName: String!) {
         super.init(imageNamed: imageName)
         
-        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.contentSize.width, self.contentSize.height), cornerRadius: 0.0)
+        self.physicsBody = CCPhysicsBody(rect: CGRectMake(0, 0, self.contentSize.width/2, self.contentSize.height), cornerRadius: 0.0)
         self.physicsBody.type = CCPhysicsBodyType.Kinematic
         self.physicsBody.friction = 1.0
         self.physicsBody.elasticity = 0.1
@@ -61,8 +61,8 @@ class Gasolina : CCSprite {
     
     
     // MARK: - Public Methods
-    internal func moveMe() {
-        let speed:CGFloat = 4//CGFloat(arc4random_uniform(4) + 3)
+    internal func moveMe(vel : CGFloat) {
+        let speed:CGFloat = vel
         self.runAction(CCActionSequence.actionOne(CCActionMoveTo.actionWithDuration(CCTime(speed), position: CGPointMake(self.position.x, self.height() * -2)) as CCActionFiniteTime,
             two: CCActionCallBlock.actionWithBlock({ _ in
                 self.stopAllSpriteActions()
